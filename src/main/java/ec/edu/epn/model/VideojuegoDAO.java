@@ -60,8 +60,8 @@ public class VideojuegoDAO {
     public List<Videojuego> obtenerVideojuegoPorTitulo(String tituloDelVideojuego) {
         EntityManager entityManager = ManejoEntidadPersistencia.getEntityManager();
         try{
-            Query query = entityManager.createQuery("SELECT v FROM Videojuego v WHERE v.titulo = :tituloDelVideojuego");
-            query.setParameter("tituloDelVideojuego", tituloDelVideojuego);
+            Query query = entityManager.createQuery("SELECT v FROM Videojuego v WHERE v.titulo LIKE :tituloDelVideojuego");
+            query.setParameter("tituloDelVideojuego", "%" + tituloDelVideojuego + "%");
             return query.getResultList();
         } finally {
             entityManager.close();
