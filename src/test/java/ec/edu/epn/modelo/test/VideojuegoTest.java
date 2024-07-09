@@ -24,9 +24,10 @@ public static VideojuegoDAO videojuegoDAO;
     @Test
     public void given_titulo_when_usuario_busque_then_obtener_coincidencias() {
         // Crear una lista de videojuegos para simular lo que retornaría la base de datos
-        String tituloEntrante = "Elden Ring";
+        String tituloEntrante = "Persona";
         List<Videojuego> resultado =videojuegoDAO.obtenerVideojuegoPorTitulo(tituloEntrante);
-        assertNotNull(resultado);
+        System.out.println(resultado.size());
+        assertFalse(resultado.isEmpty());
     }
 
     @Test
@@ -43,7 +44,8 @@ public static VideojuegoDAO videojuegoDAO;
         double precioMinimo = 15.00;
         double precioMaximo = 25.00;
         List<Videojuego> resultado =videojuegoDAO.obtenerVideojuegosPorRangoDePrecio(precioMinimo, precioMaximo);
-        assertNotNull(resultado);
+        System.out.println(resultado.size());
+        assertFalse(resultado.isEmpty());
     }
 
     @Test
@@ -56,7 +58,7 @@ public static VideojuegoDAO videojuegoDAO;
     @Test
     public void given_desarrollador_when_usuario_busque_then_obtener_coincidencias() {
         // Crear una lista de videojuegos para simular lo que retornaría la base de datos
-        String nombreDesarrollador = "FromSoftware";
+        String nombreDesarrollador = "Nintendo";
         List<Videojuego> resultado =videojuegoDAO.obtenerVideojuegoPorDesarrollador(nombreDesarrollador);
         assertFalse(resultado.isEmpty());
     }
