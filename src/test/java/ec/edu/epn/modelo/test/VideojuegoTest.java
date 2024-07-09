@@ -16,6 +16,11 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class VideojuegoTest {
 
 public static VideojuegoDAO videojuegoDAO;
+
+    @BeforeClass
+    public static void setUpClass() {
+        videojuegoDAO = new VideojuegoDAO();
+    }
     @Test
     public void given_titulo_when_usuario_busque_then_obtener_coincidencias() {
         // Crear una lista de videojuegos para simular lo que retornaría la base de datos
