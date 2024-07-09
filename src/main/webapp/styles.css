@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 1px solid red;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: cornflowerblue;
+    height: 5rem;
+}
+
+header .logoHeader{
+    align-items: center;
+    display: flex;
+}
+
+body{
+    background-color: aliceblue;
+}
+body #titulo{
+    justify-content: center;
+    display: flex;
+}
+
+body .cardContainer{
+    padding: 50px;
+    display: flex;
+    column-gap: 20px;
+    justify-content: space-between;
+}
+
+body .cardContainer .card{
+    width: 30rem;
+}
+
+body .cardContainer .card p {
+    height: 50px;
+}
+.precio{
+    display: flex;
+    justify-content: center;
+}
+
+
+
