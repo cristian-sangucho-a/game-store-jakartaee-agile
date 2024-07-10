@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<a href="index.jsp">Volver a pagina inicio</a>
 <h1>Bienvenido a la tienda de videojuegos</h1>
 <div class="cardContainer">
 <%
