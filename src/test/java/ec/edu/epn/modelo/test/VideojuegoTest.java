@@ -4,14 +4,13 @@ import ec.edu.epn.model.Videojuego;
 import ec.edu.epn.model.VideojuegoDAO;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.mockito.Mockito;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 
 public class VideojuegoTest {
 
@@ -21,6 +20,10 @@ public static VideojuegoDAO videojuegoDAO;
     public static void setUpClass() {
         videojuegoDAO = new VideojuegoDAO();
     }
+
+    /**
+     * Prueba para definir que cuando se busque por un título, entonces obtenga una lista no vacía
+     */
     @Test
     public void given_titulo_when_usuario_busque_then_obtener_coincidencias() {
         // Crear una lista de videojuegos para simular lo que retornaría la base de datos
@@ -30,6 +33,9 @@ public static VideojuegoDAO videojuegoDAO;
         assertFalse(resultado.isEmpty());
     }
 
+    /**
+     * Prueba para definir que al buscar por título entonces obtenga una lista vacía de resultados
+     */
     @Test
     public void given_titulo_when_usuario_busque_then_no_obtener_coincidencias(){
        String tituloEntrante = "Batalla Naval Simon Bolivar";
@@ -39,6 +45,10 @@ public static VideojuegoDAO videojuegoDAO;
 
     }
 
+    /**
+     * Prueba para definir que en un rango de precio, cuando el usuario busque entonces obtenga una lista
+     * de videojuegos
+     */
     @Test
     public void given_rango_precio_when_usuario_busque_then_obtener_coincidencias(){
         double precioMinimo = 15.00;
@@ -48,6 +58,9 @@ public static VideojuegoDAO videojuegoDAO;
         assertFalse(resultado.isEmpty());
     }
 
+    /**
+     * Prueba para definir que al buscar por un rango de precio no obtenga coincidencias
+     */
     @Test
     public void given_rango_precio_when_usuario_busque_then_no_obtener_coincidencias(){
        double precioMinimo = 155.00;
@@ -55,6 +68,10 @@ public static VideojuegoDAO videojuegoDAO;
         List<Videojuego> resultado =videojuegoDAO.obtenerVideojuegosPorRangoDePrecio(precioMinimo, precioMaximo);
        assertTrue(resultado.isEmpty());
     }
+
+    /**
+     * Prueba para definir que al buscar un videojuego por desarrollador obtiene una lista no vacía
+     */
     @Test
     public void given_desarrollador_when_usuario_busque_then_obtener_coincidencias() {
         // Crear una lista de videojuegos para simular lo que retornaría la base de datos
@@ -63,6 +80,9 @@ public static VideojuegoDAO videojuegoDAO;
         assertFalse(resultado.isEmpty());
     }
 
+    /**
+     * Prueba para para definir que el usuario busca por desarrollador y no obtiene coincidencias
+     */
     @Test
     public void given_desarrollador_when_usuario_busque_then_no_obtener_coincidencias(){
        String nombreDesarrollador = "Cristian Zambrano";
@@ -71,6 +91,9 @@ public static VideojuegoDAO videojuegoDAO;
        assertTrue(resultado.isEmpty());
     }
 
+    /**
+     * Prueba para mostrar el catálogo del cliente al abrir el aplicativo de inicio
+     */
     @Test
     public void given_inicio_when_ver_catalogo_then_mostrar_catalogo_videojuego(){
        List<Videojuego> videojuegos = new ArrayList<>();
