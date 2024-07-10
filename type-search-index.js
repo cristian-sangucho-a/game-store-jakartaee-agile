@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"ec.edu.epn.services","l":"ManejoEntidadPersistencia"},{"p":"ec.edu.epn.control","l":"SvVideojuego"},{"p":"ec.edu.epn.model","l":"Videojuego"},{"p":"ec.edu.epn.model","l":"VideojuegoDAO"},{"p":"ec.edu.epn.modelo.test","l":"VideojuegoTest"}];updateSearchResults();
