@@ -18,6 +18,11 @@ header .logoHeader{
     display: flex;
 }
 
+header .logoHeader img{
+    height: 80px;
+    width: 80px;
+}
+
 body{
     background-color: aliceblue;
 }
