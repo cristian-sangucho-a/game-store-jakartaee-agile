@@ -28,6 +28,7 @@ body #titulo{
 
 body .cardContainer{
     padding: 50px;
+    flex-wrap: wrap;
     display: flex;
     column-gap: 20px;
     justify-content: space-between;
