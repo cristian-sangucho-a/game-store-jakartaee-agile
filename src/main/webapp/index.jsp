@@ -17,7 +17,7 @@
             var buscarInput = document.getElementById("buscarInput");
             var selectedOption = categorias.options[categorias.selectedIndex].value;
 
-            if (selectedOption.startsWith("rangoPrecio")) {
+            if (selectedOption.startsWith("rangoPrecio_")) {
                 buscarInput.disabled = true;
             } else {
                 buscarInput.disabled = false;
@@ -32,8 +32,8 @@
         <h1>C3J2</h1>
     </div>
     <div class="busquedaVideojuegos">
-        <form action="SvVideojuego">
-            <input type="text" placeholder="Buscar">
+        <form action="SvVideojuego" method="get">
+            <input id="buscarInput" type="text" placeholder="Buscar">
             <label for="categorias">Filtrar por:</label>
             <select id="categorias" name="categorias">
                 <option value="titulo">Por titulo</option>
@@ -42,7 +42,9 @@
                     <option value="rangoPrecio_0-10">0 - 10 USD</option>
                     <option value="rangoPrecio_10-20">10 - 20 USD</option>
                     <option value="rangoPrecio_20-50">20 - 50 USD</option>
-                    <option value="rangoPrecio_50+">50 USD o más</option>
+                    <option value="rangoPrecio_50+">50 - 100 USD</option>
+                    <option value="rangoPrecio_50+">100 - 200 USD</option>
+                    <option value="rangoPrecio_50+">200 USD o más</option>
                 </optgroup>
             </select>
             <input id="botonBuscar" type="submit" value="Buscar">
