@@ -40,8 +40,8 @@ body .cardContainer .card{
     width: 30rem;
     border: 1px solid black;
     border-radius: 10px;
-    display: flex;
     justify-content: center;
+    text-align: center;
 }
 
 body .cardContainer .card p {
