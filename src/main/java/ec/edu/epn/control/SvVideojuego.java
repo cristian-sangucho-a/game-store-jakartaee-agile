@@ -10,18 +10,29 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 import ec.edu.epn.model.Videojuego;
 import ec.edu.epn.model.VideojuegoDAO;
 
-
+/**
+ * Servlet controlador para manejar las solicitudes relacionadas con los videojuegos.
+ */
 @WebServlet(name = "SvVideojuego", value = "/SvVideojuego")
 public class SvVideojuego extends HttpServlet {
+    /**
+     * Maneja las solicitudes GET del cliente.
+     *
+     * @param request  el HttpServletRequest que contiene la solicitud del cliente
+     * @param response el HttpServletResponse que contiene la respuesta del servlet
+     * @throws ServletException si ocurre un error específico del servlet
+     * @throws IOException      si ocurre un error de entrada/salida
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         // Obtener el valor del elemento <select>
         String categorias = request.getParameter("categorias");
         List<Videojuego> videojuegos = new ArrayList<Videojuego>();
-
+        // Filtrar los videojuegos según la categoría seleccionada
         VideojuegoDAO videojuegoDAO = new VideojuegoDAO();
         switch (categorias) {
             case "titulo":
@@ -55,8 +66,6 @@ public class SvVideojuego extends HttpServlet {
         HttpSession sesion = request.getSession();
         sesion.setAttribute("videojuegos", videojuegos);
         response.sendRedirect("catalogoFiltrado.jsp");
-
-
 
 
     }
