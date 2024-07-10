@@ -32,7 +32,7 @@
         <h1>C3J2</h1>
     </div>
     <div class="busquedaVideojuegos">
-        <form action="SvVideojuego" method="get">
+        <form action="SvVideojuego" method="GET">
             <input id="buscarInput" name="busqueda" type="text" placeholder="Buscar">
             <label for="categorias">Filtrar por:</label>
             <select id="categorias" name="categorias">
