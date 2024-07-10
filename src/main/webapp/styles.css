@@ -18,6 +18,11 @@ header .logoHeader{
     display: flex;
 }
 
+header .logoHeader img{
+    height: 80px;
+    width: 80px;
+}
+
 body{
     background-color: aliceblue;
 }
@@ -28,15 +33,20 @@ body #titulo{
 
 body .cardContainer{
     padding: 50px;
+    flex-wrap: wrap;
     display: flex;
     column-gap: 20px;
+    row-gap: 20px;
     justify-content: space-between;
+    padding: 10px;
 }
 
 body .cardContainer .card{
     width: 30rem;
     border: 1px solid black;
     border-radius: 10px;
+    justify-content: center;
+    text-align: center;
 }
 
 body .cardContainer .card p {
