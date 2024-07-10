@@ -28,7 +28,7 @@
 </head>
 <header>
     <div class="logoHeader">
-        <img src="../src/recursos/LogoC3J2.PNG" alt="logo de la pagina web">
+        <img src="../../recursos/LogoC3J2.PNG" alt="logo de la pagina web">
         <h1>C3J2</h1>
     </div>
     <div class="busquedaVideojuegos">
@@ -52,24 +52,26 @@
 <body>
 <!--MOSTRAR EL CATALOGO-->
 <h1 id="titulo">Bienvenido a la tienda de videojuegos</h1>
+<div class="cardContainer">
 <%
     VideojuegoDAO videojuegoDAO = new VideojuegoDAO();
     List<Videojuego> videojuegos = videojuegoDAO.obtenerTodosLosVideojuego();
     for (Videojuego videojuego : videojuegos) {
 %>
-<div class="cardContainer">
+
     <div class="card">
         <h4>Titulo del videojuego: <%=videojuego.getTitulo()%></h4>
         <div>
-            <img src="../src/recursos/imagenVideojuegoGenerica.webp" alt="Imagen de videojuego">
+            <img src="../../recursos/imagenVideojuegoGenerica.webp" alt="Imagen de videojuego">
         </div>
         <p>Desarrollado por: <%=videojuego.getDesarrollador()%></p>
         <p class="precio">Precio: <%=videojuego.getPrecio()%></p>
     </div>
-</div>
+
 <%
     }
 %>
+</div>
 
 </body>
 </html>
