@@ -89,7 +89,9 @@ public class Videojuego {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
-
+    public int getId(){
+        return id;
+    }
     /**
      * Método sobre-escrito toString
      * @return un String especificando el formato de los datos del videojuego
