@@ -89,4 +89,15 @@ public class VideojuegoDAO {
             entityManager.close();
         }
     }
+
+    public Videojuego obtenerVideojuegoPorId(int IdVideojuego) {
+        EntityManager entityManager = ManejoEntidadPersistencia.getEntityManager();
+        try{
+            Query query = entityManager.createQuery("SELECT v FROM Videojuego v WHERE v.id = :IdVideojuego");
+            query.setParameter("IdVideojuego", IdVideojuego);
+            return (Videojuego) query.getResultList().get(0);
+        } finally {
+            entityManager.close();
+        }
+    }
 }
