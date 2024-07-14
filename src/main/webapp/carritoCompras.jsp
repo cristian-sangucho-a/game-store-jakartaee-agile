@@ -42,6 +42,9 @@
         }
     %>
     <h2>Total de la Compra: $<%= totalCompra %></h2>
+    <form action="realizarPedido" method="post">
+        <button type="submit">Realizar Pedido</button>
+    </form>
     <%
         }
     %>

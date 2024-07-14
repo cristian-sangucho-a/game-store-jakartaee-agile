@@ -1,0 +1,85 @@
+/* stylesCarrito.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: cornflowerblue;
+    height: 5rem;
+}
+
+header .logoHeader {
+    align-items: center;
+    display: flex;
+}
+
+header .logoHeader img {
+    height: 80px;
+    width: 80px;
+}
+
+body {
+    background-color: aliceblue;
+}
+
+body #titulo {
+    justify-content: center;
+    display: flex;
+}
+
+body .cardContainer {
+    padding: 50px;
+    flex-wrap: wrap;
+    display: flex;
+    column-gap: 20px;
+    row-gap: 20px;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+body .cardContainer .card {
+    width: 30rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    justify-content: center;
+    text-align: center;
+}
+
+body .cardContainer .card p {
+    height: 50px;
+}
+
+.precio {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 16px;
+    margin: 16px;
+    width: 300px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.card h2 {
+    margin: 0 0 16px 0;
+}
+
+.card button {
+    margin: 4px;
+}
