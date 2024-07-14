@@ -1,7 +1,8 @@
 
 package ec.edu.epn.modelo.test;
 
-import ec.edu.epn.model.*;
+import ec.edu.epn.model.entities.Videojuego;
+import ec.edu.epn.model.logic.CarritoDeCompras;
 import org.junit.BeforeClass;
 import org.junit.Test;
 

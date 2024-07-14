@@ -1,5 +1,5 @@
 <%@ page import="java.util.List" %>
-<%@ page import="ec.edu.epn.model.Videojuego" %>
+<%@ page import="ec.edu.epn.model.entities.Videojuego" %>
 
 <%--
   Created by IntelliJ IDEA.

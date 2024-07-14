@@ -1,6 +1,6 @@
 <%@ page import="java.util.List" %>
-<%@ page import="ec.edu.epn.model.Videojuego" %>
-<%@ page import="ec.edu.epn.model.VideojuegoDAO" %>
+<%@ page import="ec.edu.epn.model.entities.Videojuego" %>
+<%@ page import="ec.edu.epn.model.logic.VideojuegoDAO" %>
 <%--
   Created by IntelliJ IDEA.
   User: Cristian Zambrano

@@ -1,7 +1,7 @@
 package ec.edu.epn.modelo.test;
 
-import ec.edu.epn.model.Videojuego;
-import ec.edu.epn.model.VideojuegoDAO;
+import ec.edu.epn.model.entities.Videojuego;
+import ec.edu.epn.model.logic.VideojuegoDAO;
 import org.junit.BeforeClass;
 import org.junit.Test;
 

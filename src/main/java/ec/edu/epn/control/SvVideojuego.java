@@ -11,8 +11,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import ec.edu.epn.model.Videojuego;
-import ec.edu.epn.model.VideojuegoDAO;
+import ec.edu.epn.model.entities.Videojuego;
+import ec.edu.epn.model.logic.VideojuegoDAO;
 
 /**
  * Servlet controlador para manejar las solicitudes relacionadas con los videojuegos.

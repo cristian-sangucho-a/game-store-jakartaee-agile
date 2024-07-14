@@ -1,4 +1,6 @@
-package ec.edu.epn.model;
+package ec.edu.epn.model.logic;
+
+import ec.edu.epn.model.entities.Videojuego;
 
 import java.util.HashMap;
 import java.util.Map;

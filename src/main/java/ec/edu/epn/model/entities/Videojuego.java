@@ -1,7 +1,7 @@
 /**
  * Paquete del modelo del patrón MVC
  */
-package ec.edu.epn.model;
+package ec.edu.epn.model.entities;
 /**
  * Librería para el uso de la persistencia de Jakarta
  */

@@ -1,4 +1,4 @@
-<%@ page import="java.util.*, ec.edu.epn.model.Videojuego, ec.edu.epn.model.Carrito" %>
+<%@ page import="java.util.*, ec.edu.epn.model.entities.Videojuego, ec.edu.epn.model.Carrito" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>

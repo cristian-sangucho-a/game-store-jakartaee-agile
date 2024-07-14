@@ -1,12 +1,13 @@
 /**
  * Paquete Modelo del patrón MVC
  */
-package ec.edu.epn.model;
+package ec.edu.epn.model.logic;
 /**
  * Clase necesaria para abrir y cerrar conexiones
  * @see ec.edu.epn.services.ManejoEntidadPersistencia
  */
 
+import ec.edu.epn.model.entities.Videojuego;
 import ec.edu.epn.services.ManejoEntidadPersistencia;
 /**
  * Clase Entity que ayuda a manejar los Persistence Unit
