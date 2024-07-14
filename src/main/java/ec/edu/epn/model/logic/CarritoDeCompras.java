@@ -27,6 +27,7 @@ public class CarritoDeCompras {
         return videojuegos;
     }
 
-    public void agregarVideojuegoAlCarrito(Videojuego videojuegoNuevo) {
+    public void agregarVideojuegoAlCarrito(Videojuego videojuego) {
+        videojuegos.put(videojuego, videojuegos.getOrDefault(videojuego, 0) + 1);
     }
 }
