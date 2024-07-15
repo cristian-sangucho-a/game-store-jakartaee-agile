@@ -57,6 +57,17 @@ body .cardContainer .card p {
     justify-content: center;
 }
 
+.boton-volver{
+    height: 30px;
+    width: 50px;
+    background-color: aliceblue;
+}
+
+.boton-volver a{
+    text-decoration: none;
+
+}
+
 
 .boton-volver a {
     display: inline-block;
