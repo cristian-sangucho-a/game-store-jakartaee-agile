@@ -115,6 +115,15 @@ public class Videojuego {
                 '}';
     }
 
+
+    public String getImageDataString(){
+        StringBuilder sb = new StringBuilder();
+        for (byte imageDatum : this.imageData) {
+            sb.append((char) imageDatum);
+        }
+        return sb.toString();
+    }
+
     public byte[] getImageData() {
         return imageData;
     }
