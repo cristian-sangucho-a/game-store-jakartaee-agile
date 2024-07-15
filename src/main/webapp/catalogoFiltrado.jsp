@@ -15,7 +15,9 @@
 </head>
 <body>
 <!--Sección para volver al inicio-->
-<a href="index.jsp">Volver a pagina inicio</a>
+<div class="boton-volver">
+    <a href="index.jsp">Volver a pagina inicio</a>
+</div>
 <h1>Bienvenido a la tienda de videojuegos</h1>
 <!--Contenedor que recorre todos los videojuegos y los muestra-->
 <div class="cardContainer">
