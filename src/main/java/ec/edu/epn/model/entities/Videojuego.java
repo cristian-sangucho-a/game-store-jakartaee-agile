@@ -8,6 +8,8 @@ package ec.edu.epn.model.entities;
 
 import jakarta.persistence.*;
 
+import java.util.Arrays;
+
 /**
  * Clase Videojuego para la persistencia de la información
  * Contiene un id generado automáticamente
@@ -23,6 +25,9 @@ public class Videojuego {
     private double precio;
     private String Desarrollador;
 
+    @Lob
+    @Column(name = "image_data" ,columnDefinition="VARBINARY(MAX)")
+    private byte[] imageData;
 
     /**
      * Constructor de la clase videojuego
@@ -30,12 +35,12 @@ public class Videojuego {
      * @param nombreDeDesarrollador El precio del videojuego
      * @param precio El desarrollador del videojuego
      */
-    public Videojuego(String titulo, String nombreDeDesarrollador, double precio) {
+    public Videojuego(String titulo, String nombreDeDesarrollador, double precio, byte[] imageData) {
         this.titulo = titulo;
         this.Desarrollador = nombreDeDesarrollador;
         this.precio = precio;
+        this.imageData = imageData;
     }
-
     /**
      * Constructor público de la clase Videojuego
      */
@@ -92,18 +97,29 @@ public class Videojuego {
     public int getId(){
         return id;
     }
+
     /**
      * Método sobre-escrito toString
+     *
      * @return un String especificando el formato de los datos del videojuego
      * @see String
      */
     @Override
     public String toString() {
-        return "{" +
-                "id: " + id + '|' +
-                " titulo: " + titulo + '|' +
-                " dev: " + Desarrollador + '|' +
-                " precio: " + precio +
+        return "Videojuego{" +
+                "id=" + id +
+                ", titulo='" + titulo + '\'' +
+                ", precio=" + precio +
+                ", Desarrollador='" + Desarrollador + '\'' +
+                ", imageData=" + Arrays.toString(imageData) +
                 '}';
+    }
+
+    public byte[] getImageData() {
+        return imageData;
+    }
+
+    public void setImageData(byte[] imageData) {
+        this.imageData = imageData;
     }
 }
