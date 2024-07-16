@@ -1,4 +1,5 @@
-<%@ page import="java.util.*, ec.edu.epn.model.entities.Videojuego, ec.edu.epn.model.logic.CarritoDeCompras" %>
+<%@ page import="java.util.List" %>
+<%@ page import="ec.edu.epn.model.entities.Videojuego, ec.edu.epn.model.logic.CarritoDeCompras" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -7,51 +8,41 @@
 </head>
 <body>
 <h1>Carrito de Compras</h1>
+<div class="boton-volver">
+    <a href="index.jsp">Volver a pagina inicio</a>
+</div>
 <div class="container">
     <%
         HttpSession sessionActual = request.getSession();
         CarritoDeCompras carrito = (CarritoDeCompras) sessionActual.getAttribute("carroDeCompras");
-        if (carrito == null || carrito.getVideojuegosDelCarrito().isEmpty()) {
+        if (carrito == null || carrito.getVideojuegos().isEmpty()) {
     %>
     <p>No hay nada en el carrito todavía.</p>
     <%
     } else {
-        Map<Videojuego, Integer> videojuegosAgrupados = new HashMap<>();
-        for (Map.Entry<Videojuego, Integer> entry : carrito.getVideojuegosDelCarrito().entrySet()) {
-            Videojuego videojuego = entry.getKey();
-            int cantidadActual = entry.getValue();
-            videojuegosAgrupados.merge(videojuego, cantidadActual, Integer::sum);
-        }
-
-        for (Map.Entry<Videojuego, Integer> entry : videojuegosAgrupados.entrySet()) {
-            Videojuego videojuego = entry.getKey();
-            int cantidad = entry.getValue();
-            double totalProducto = videojuego.getPrecio() * cantidad;
+        List<Videojuego> videojuegos = carrito.getVideojuegos();
+        for (Videojuego videojuego : videojuegos) {
     %>
     <div class="card">
         <h2><%= videojuego.getTitulo() %></h2>
         <div>
             <img src="data:image/png;base64,<%=videojuego.getImageDataString()%>" alt="imagenDeVideojuego">
         </div>
-        <p>Cantidad: <%= cantidad %></p>
         <p>Precio: $<%= videojuego.getPrecio() %></p>
-        <p>Total: $<%= totalProducto %></p>
-        <form action="SvActualizarCarrito" method="POST">
+        <form action="SvQuitarDeCarrito" method="POST">
             <input type="hidden" name="videojuegoId" value="<%= videojuego.getId() %>" />
-            <input type="hidden" name="accion" value="quitar" />
-            <button type="submit">-</button>
-        </form>
-        <form action="SvActualizarCarrito" method="POST">
-            <input type="hidden" name="videojuegoId" value="<%= videojuego.getId() %>" />
-            <input type="hidden" name="accion" value="agregar" />
-            <button type="submit">+</button>
+            <button type="submit">Quitar del carrito</button>
         </form>
     </div>
     <%
         }
-        double totalCompra = carrito.getTotalCompra();
     %>
-    <h2>Total de la Compra: $<%= totalCompra %></h2>
+    <div class="total-price">
+        <h2>Total: $<%= carrito.getTotalCompra() %></h2>
+    </div>
+    <form action="SvEliminarTodosLosVideojuegos" method="POST">
+        <button type="submit">Vaciar Carrito</button>
+    </form>
     <%
         }
     %>

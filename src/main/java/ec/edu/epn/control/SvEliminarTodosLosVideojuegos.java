@@ -21,17 +21,16 @@ import java.util.List;
 public class SvEliminarTodosLosVideojuegos extends HttpServlet {
     /**
      * Maneja las solicitudes GET del cliente.
-     *
      * @param request  el HttpServletRequest que contiene la solicitud del cliente
      * @param response el HttpServletResponse que contiene la respuesta del servlet
      * @throws ServletException si ocurre un error específico del servlet
      * @throws IOException      si ocurre un error de entrada/salida
      */
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         CarritoDeCompras carroDeCompras = (CarritoDeCompras) session.getAttribute("carroDeCompras");
         carroDeCompras.borrarTodosLosVideojuegos();
-
         session.setAttribute("carroDeCompras", carroDeCompras);
         response.sendRedirect("carritoCompras.jsp");
     }
