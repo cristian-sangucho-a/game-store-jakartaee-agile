@@ -22,7 +22,7 @@ public class CarritoDeCompras {
         }
     }
     public boolean contieneVideojuego(Videojuego videojuego) {
-        return videojuegos.contains(videojuego);
+        return videojuegos.stream().anyMatch(v -> v.getId() == videojuego.getId());
     }
 
     public void borrarTodosLosVideojuegos() {
