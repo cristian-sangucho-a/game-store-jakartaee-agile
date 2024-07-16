@@ -49,5 +49,10 @@
         }
     %>
 </div>
+
+<form action="eliminarVideojuegos" method="post">
+    <button type="submit">Eliminar todos los videojuegos</button>
+</form>
+
 </body>
 </html>
