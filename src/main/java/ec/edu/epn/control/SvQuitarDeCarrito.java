@@ -13,7 +13,7 @@ import java.io.IOException;
 public class SvQuitarDeCarrito extends HttpServlet{
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        int idVideojuego = Integer.parseInt(request.getParameter("idVideojuego"));
+        int idVideojuego = Integer.parseInt(request.getParameter("videojuegoId"));
         VideojuegoDAO vDAO = new VideojuegoDAO();
         HttpSession session = request.getSession();
         CarritoDeCompras carroDeCompras = (CarritoDeCompras) session.getAttribute("carroDeCompras");
