@@ -21,6 +21,7 @@ public class SvActualizarCarrito extends HttpServlet {
             session.setAttribute("carroDeCompras", carroDeCompras);
         }
         carroDeCompras.actualizarCantidadVideojuego(Integer.parseInt(request.getParameter("idVideojuego")), (String) request.getParameter("accion"));
+        session.setAttribute("carroDeCompras", carroDeCompras);
         response.sendRedirect("carritoCompras.jsp");
     }
 }
