@@ -14,14 +14,19 @@ import java.io.IOException;
 public class SvActualizarCarrito extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        CarritoDeCompras carroDeCompras = (CarritoDeCompras)  session.getAttribute("carroDeCompras");
-        if(carroDeCompras == null) {
-            carroDeCompras = new CarritoDeCompras();
+        try {
+            HttpSession session = request.getSession();
+            CarritoDeCompras carroDeCompras = (CarritoDeCompras) session.getAttribute("carroDeCompras");
+            if (carroDeCompras == null) {
+                carroDeCompras = new CarritoDeCompras();
+                session.setAttribute("carroDeCompras", carroDeCompras);
+            }
+            carroDeCompras.actualizarCantidadVideojuego(Integer.parseInt(request.getParameter("idVideojuego")), (String) request.getParameter("accion"));
             session.setAttribute("carroDeCompras", carroDeCompras);
+            response.sendRedirect("carritoCompras.jsp");
+        }catch (Exception e){
+            e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,"An error ocurred while");
         }
-        carroDeCompras.actualizarCantidadVideojuego(Integer.parseInt(request.getParameter("idVideojuego")), (String) request.getParameter("accion"));
-        session.setAttribute("carroDeCompras", carroDeCompras);
-        response.sendRedirect("carritoCompras.jsp");
     }
 }
