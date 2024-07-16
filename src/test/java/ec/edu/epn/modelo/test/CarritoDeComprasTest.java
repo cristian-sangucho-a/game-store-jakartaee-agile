@@ -21,7 +21,8 @@ public class CarritoDeComprasTest {
     @Test
     public void given_cliente_en_carrito_when_elimine_juego_then_eliminar_juego_del_carrito(){
         carritoDeCompras.getVideojuegos().clear();
-        Videojuego videojuegoNuevo = new Videojuego(); //Necesito que esté
+        Videojuego videojuegoNuevo = new Videojuego();
+        videojuegoNuevo.setId(1);//Necesito que esté
         carritoDeCompras.agregarVideojuegoAlCarrito(videojuegoNuevo);//Necesito que esté
         carritoDeCompras.quitarVideojuegoDelCarrito(videojuegoNuevo);
         assertFalse(carritoDeCompras.getVideojuegos().contains(videojuegoNuevo));
@@ -31,6 +32,7 @@ public class CarritoDeComprasTest {
     public void given_cliente_en_carrito_when_agregue_juego_then_el_videojuego_estara_en_el_carrito(){
         carritoDeCompras.getVideojuegos().clear();
         Videojuego videojuegoAAgregar = new Videojuego();
+        videojuegoAAgregar.setId(1);
         videojuegoAAgregar.setTitulo("Juego de prueba");
         carritoDeCompras.agregarVideojuegoAlCarrito(videojuegoAAgregar);
         assertTrue(carritoDeCompras.getVideojuegos().contains(videojuegoAAgregar));
@@ -38,8 +40,12 @@ public class CarritoDeComprasTest {
     @Test
     public void given_cliente_en_carrito_when_vacie_Carrito_then_lista_vacia() {
         carritoDeCompras.getVideojuegos().clear();
-        carritoDeCompras.agregarVideojuegoAlCarrito(new Videojuego());
-        carritoDeCompras.agregarVideojuegoAlCarrito(new Videojuego());
+        Videojuego videojuego1 = new Videojuego();
+        videojuego1.setId(1);
+        Videojuego videojuego2 = new Videojuego();
+        videojuego2.setId(2);
+        carritoDeCompras.agregarVideojuegoAlCarrito(videojuego1);
+        carritoDeCompras.agregarVideojuegoAlCarrito(videojuego2);
         carritoDeCompras.borrarTodosLosVideojuegos();
         assertTrue(carritoDeCompras.getVideojuegos().isEmpty());
     }
@@ -47,8 +53,10 @@ public class CarritoDeComprasTest {
     public void given_cliente_en_carrito_when_agregue_juegos_then_mostrar_precios_totales() {
         carritoDeCompras.getVideojuegos().clear();
         Videojuego videojuego1 = new Videojuego();
+        videojuego1.setId(1);
         videojuego1.setPrecio(10.0);
         Videojuego videojuego2 = new Videojuego();
+        videojuego2.setId(2);
         videojuego2.setPrecio(20.0);
         carritoDeCompras.agregarVideojuegoAlCarrito(videojuego1);
         carritoDeCompras.agregarVideojuegoAlCarrito(videojuego2);

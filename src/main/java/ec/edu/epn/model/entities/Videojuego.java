@@ -114,8 +114,9 @@ public class Videojuego {
                 ", imageData=" + Arrays.toString(imageData) +
                 '}';
     }
-
-
+    public void setId(int id){
+        this.id = id;
+    }
     public String getImageDataString(){
         StringBuilder sb = new StringBuilder();
         for (byte imageDatum : this.imageData) {
