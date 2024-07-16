@@ -33,6 +33,10 @@
     </div>
     <p>Desarrollado por: <%=videojuego.getDesarrollador()%></p>
     <p class="precio">Precio: <%=videojuego.getPrecio()%></p>
+    <form action="SvAgregarACarrito" method="get">
+        <input type="hidden" name="idVideojuego" value="<%=videojuego.getId()%>">
+        <button type="submit" class="btn-agregar">Agregar al carrito</button>
+    </form>
 </div>
 <%
     }
