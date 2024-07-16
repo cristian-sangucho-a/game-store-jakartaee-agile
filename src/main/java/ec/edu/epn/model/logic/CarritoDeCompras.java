@@ -36,4 +36,19 @@ public class CarritoDeCompras {
         videojuegos.clear();
     }
 
+    public double getTotalCompra() {
+        double total = 0;
+        for (Map.Entry<Videojuego, Integer> entry : videojuegos.entrySet()) {
+            total += entry.getKey().getPrecio() * entry.getValue();
+        }
+        return total;
+    }
+    public double getTotalCompraPorVideojuego(int videojuegoId) {
+        for (Map.Entry<Videojuego, Integer> entry : videojuegos.entrySet()) {
+            if (entry.getKey().getId() == videojuegoId) {
+                return entry.getKey().getPrecio() * entry.getValue();
+            }
+        }
+        return 0;
+    }
 }

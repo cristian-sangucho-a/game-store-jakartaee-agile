@@ -25,6 +25,7 @@
             }
         }
     </script>
+    <script src="https://kit.fontawesome.com/1a501b4a16.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <header>
@@ -52,6 +53,10 @@
             <input id="botonBuscar" type="submit" value="Buscar">
         </form>
     </div>
+    <a href="carritoCompras.jsp">
+        <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+    </a>
+
 </header>
 <body>
 <!--MOSTRAR EL CATALOGO-->
