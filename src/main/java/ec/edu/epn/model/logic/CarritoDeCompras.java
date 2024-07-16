@@ -30,4 +30,8 @@ public class CarritoDeCompras {
     public void agregarVideojuegoAlCarrito(Videojuego videojuego) {
         videojuegos.put(videojuego, videojuegos.getOrDefault(videojuego, 0) + 1);
     }
+
+    public void limpiarCarrito(){
+        videojuegos.clear();
+    }
 }
