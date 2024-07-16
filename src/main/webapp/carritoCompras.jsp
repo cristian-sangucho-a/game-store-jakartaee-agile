@@ -16,10 +16,17 @@
     <p>No hay nada en el carrito todavía.</p>
     <%
     } else {
+        Map<Videojuego, Integer> videojuegosAgrupados = new HashMap<>();
         for (Map.Entry<Videojuego, Integer> entry : carrito.getVideojuegosDelCarrito().entrySet()) {
             Videojuego videojuego = entry.getKey();
+            int cantidadActual = entry.getValue();
+            videojuegosAgrupados.merge(videojuego, cantidadActual, Integer::sum);
+        }
+
+        for (Map.Entry<Videojuego, Integer> entry : videojuegosAgrupados.entrySet()) {
+            Videojuego videojuego = entry.getKey();
             int cantidad = entry.getValue();
-            double totalProducto = carrito.getTotalCompraPorVideojuego(videojuego.getId());
+            double totalProducto = videojuego.getPrecio() * cantidad;
     %>
     <div class="card">
         <h2><%= videojuego.getTitulo() %></h2>
@@ -36,14 +43,12 @@
             <input type="hidden" name="accion" value="agregar" />
             <button type="submit">+</button>
         </form>
-        <!-- Botones de acción omitidos para brevedad -->
     </div>
     <%
         }
         double totalCompra = carrito.getTotalCompra();
     %>
     <h2>Total de la Compra: $<%= totalCompra %></h2>
-    <!-- Formulario de pedido omitido para brevedad -->
     <%
         }
     %>
