@@ -31,7 +31,8 @@ public class CarritoDeCompras {
         videojuegos.put(videojuego, videojuegos.getOrDefault(videojuego, 0) + 1);
     }
 
-    public void limpiarCarrito(){
+
+    public void borrarTodosLosVideojuegos() {
         videojuegos.clear();
     }
 }

@@ -50,7 +50,7 @@
     %>
 </div>
 
-<form action="eliminarVideojuegos" method="post">
+<form action="SvEliminarTodosLosVideojuegos" method="get">
     <button type="submit">Eliminar todos los videojuegos</button>
 </form>
 
