@@ -30,6 +30,9 @@
     %>
     <div class="card">
         <h2><%= videojuego.getTitulo() %></h2>
+        <div>
+            <img src="data:image/png;base64,<%=videojuego.getImageDataString()%>" alt="imagenDeVideojuego">
+        </div>
         <p>Cantidad: <%= cantidad %></p>
         <p>Precio: $<%= videojuego.getPrecio() %></p>
         <p>Total: $<%= totalProducto %></p>
