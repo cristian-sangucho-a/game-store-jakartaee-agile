@@ -36,7 +36,4 @@ public class CarritoDeCompras {
         videojuegos.clear();
     }
 
-    public void borrarTodosLosVideojuegos() {
-        videojuegos.clear();
-    }
 }
