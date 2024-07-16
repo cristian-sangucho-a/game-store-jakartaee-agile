@@ -51,4 +51,25 @@ public class CarritoDeCompras {
         }
         return 0;
     }
+    public void actualizarCantidadVideojuego(int videojuegoId, String accion) {
+        Videojuego videojuegoAActualizar = null;
+        for (Videojuego v : videojuegos.keySet()) {
+            if (v.getId() == videojuegoId) {
+                videojuegoAActualizar = v;
+                break;
+            }
+        }
+        if (videojuegoAActualizar != null) {
+            int cantidadActual = videojuegos.get(videojuegoAActualizar);
+            if (accion.equals("agregar")) {
+                videojuegos.put(videojuegoAActualizar, cantidadActual + 1);
+            } else if (accion.equals("quitar")) {
+                if (cantidadActual > 1) {
+                    videojuegos.put(videojuegoAActualizar, cantidadActual - 1);
+                } else {
+                    videojuegos.remove(videojuegoAActualizar);
+                }
+            }
+        }
+    }
 }

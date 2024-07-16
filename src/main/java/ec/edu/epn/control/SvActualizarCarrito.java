@@ -20,15 +20,7 @@ public class SvActualizarCarrito extends HttpServlet {
             carroDeCompras = new CarritoDeCompras();
             session.setAttribute("carroDeCompras", carroDeCompras);
         }
-        VideojuegoDAO vdao = new VideojuegoDAO();
-        int videojuegoId = Integer.parseInt(request.getParameter("videojuegoId"));
-        String accion = request.getParameter("accion");
-        if(accion.equals("agregar")) {
-            carroDeCompras.agregarVideojuegoAlCarrito(vdao.obtenerVideojuegoPorId(videojuegoId));
-        } else if(accion.equals("quitar")) {
-            carroDeCompras.quitarVideojuegoDelCarrito(vdao.obtenerVideojuegoPorId(videojuegoId));
-        }
-
+        carroDeCompras.actualizarCantidadVideojuego(Integer.parseInt(request.getParameter("idVideojuego")), (String) request.getParameter("accion"));
         response.sendRedirect("carritoCompras.jsp");
     }
 }
