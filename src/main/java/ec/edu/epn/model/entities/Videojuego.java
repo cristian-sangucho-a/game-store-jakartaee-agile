@@ -114,6 +114,11 @@ public class Videojuego {
                 ", imageData=" + Arrays.toString(imageData) +
                 '}';
     }
+
+    /**
+     * Setter del id del videojuego
+     * @param id un entero con el id del videojuego
+     */
     public void setId(int id){
         this.id = id;
     }

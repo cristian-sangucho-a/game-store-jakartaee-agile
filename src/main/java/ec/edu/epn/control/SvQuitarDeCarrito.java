@@ -10,7 +10,19 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 @WebServlet(name = "SvQuitarDeCarrito", value = "/SvQuitarDeCarrito")
+/**
+ * Servlet controlador para manejar las solicitudes relacionadas con los videojuegos.
+
+ */
 public class SvQuitarDeCarrito extends HttpServlet{
+    /**
+     * Maneja las solicitudes POST del cliente.
+     * @param request an {@link HttpServletRequest} object that contains the request the client has made of the servlet
+     *
+     * @param response an {@link HttpServletResponse} object that contains the response the servlet sends to the client
+     *
+     * @throws IOException
+     */
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int idVideojuego = Integer.parseInt(request.getParameter("videojuegoId"));

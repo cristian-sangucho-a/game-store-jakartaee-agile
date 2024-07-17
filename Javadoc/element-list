@@ -1,4 +1,5 @@
 ec.edu.epn.control
-ec.edu.epn.model
+ec.edu.epn.model.entities
+ec.edu.epn.model.logic
 ec.edu.epn.modelo.test
 ec.edu.epn.services

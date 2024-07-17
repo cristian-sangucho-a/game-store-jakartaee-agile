@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"ec.edu.epn.control"},{"l":"ec.edu.epn.model"},{"l":"ec.edu.epn.modelo.test"},{"l":"ec.edu.epn.services"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"ec.edu.epn.control"},{"l":"ec.edu.epn.model.entities"},{"l":"ec.edu.epn.model.logic"},{"l":"ec.edu.epn.modelo.test"},{"l":"ec.edu.epn.services"}];updateSearchResults();
