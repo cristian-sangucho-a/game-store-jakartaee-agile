@@ -11,7 +11,7 @@
 <html>
 <head>
     <title>Catálogo Filtrado de Videojuegos</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles1.css">
 </head>
 <body>
 <!--Sección para volver al inicio-->
