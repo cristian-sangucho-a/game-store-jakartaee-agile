@@ -12,7 +12,7 @@
 <h1>Carrito de Compras</h1>
 <!-- Botón para volver a la página de inicio -->
 <div class="boton-volver">
-    <a href="index.jsp">Volver a pagina inicio</a>
+    <a href="index.jsp">Volver a página de inicio</a>
 </div>
 <!-- Contenedor para los elementos del carrito de compras -->
 <div class="container">
@@ -24,7 +24,7 @@
         if (carrito == null || carrito.getVideojuegos().isEmpty()) {
     %>
     <!-- Mensaje mostrado si el carrito está vacío -->
-    <p>No hay nada en el carrito todavía.</p>
+    <p class="mensaje-vacio">No hay nada en el carrito todavía.</p>
     <%
     } else {
         // Iterar sobre los videojuegos en el carrito
@@ -39,11 +39,11 @@
             <img src="data:image/png;base64,<%=videojuego.getImageDataString()%>" alt="imagenDeVideojuego">
         </div>
         <!-- Mostrar el precio del videojuego -->
-        <p>Precio: $<%= videojuego.getPrecio() %></p>
+        <p class="precio">Precio: $<%= videojuego.getPrecio() %></p>
         <!-- Botón para quitar el videojuego del carrito -->
         <form action="SvQuitarDeCarrito" method="POST">
             <input type="hidden" name="videojuegoId" value="<%= videojuego.getId() %>" />
-            <button type="submit">Quitar del carrito</button>
+            <button type="submit" class="btn-quitar">Quitar del carrito</button>
         </form>
     </div>
     <%
@@ -55,7 +55,7 @@
     </div>
     <!-- Botón para vaciar el carrito -->
     <form action="SvEliminarTodosLosVideojuegos" method="POST">
-        <button type="submit">Vaciar Carrito</button>
+        <button type="submit" class="btn-vaciar">Vaciar Carrito</button>
     </form>
     <%
         }

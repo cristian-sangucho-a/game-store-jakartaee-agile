@@ -1,7 +1,7 @@
 /* Estilos generales */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f0f0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: aliceblue;
     margin: 0;
     padding: 20px;
 }
@@ -9,62 +9,82 @@ body {
 .container {
     max-width: 800px;
     margin: auto;
-    background-color: #fff;
+    background-color: white;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .boton-volver a {
     display: inline-block;
-    background-color: #007bff;
+    background-color: #007BFF;
     color: white;
-    padding: 10px 15px;
+    padding: 10px 20px;
     text-decoration: none;
-    border-radius: 5px;
-    margin-bottom: 20px;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.boton-volver a:hover {
+    background-color: #0056b3;
 }
 
 .card {
-    background: #f9f9f9;
+    background-color: white;
     margin-bottom: 15px;
     padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-10px);
 }
 
 .card h2 {
-    margin-top: 0;
     color: #333;
+    font-size: 1.5rem;
+    background-color: cornflowerblue;
+    color: white;
+    padding: 15px 0;
+    border-radius: 10px 10px 0 0;
 }
 
 .card img {
     max-width: 100%;
     height: auto;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .card p {
-    color: #666;
+    padding: 15px;
+    height: 70px;
+    color: #555;
+    font-size: 1rem;
 }
 
 .total-price {
-    font-size: 18px;
+    font-size: 1.5rem;
+    color: #007BFF;
     text-align: right;
     margin-top: 20px;
     font-weight: bold;
 }
 
 button {
-    background-color: #28a745;
+    background-color: #007BFF;
     color: white;
     border: none;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease-in-out;
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: #0056b3;
 }
