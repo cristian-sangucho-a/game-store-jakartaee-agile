@@ -59,6 +59,7 @@
     <a href="carritoCompras.jsp">
         <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
         <!--Aquí va la modificacion-->
+        <span><%= contadorCarrito %></span>
     </a>
 </header>
 
