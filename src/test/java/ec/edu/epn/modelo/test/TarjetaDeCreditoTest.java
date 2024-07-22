@@ -1,6 +1,6 @@
 package ec.edu.epn.modelo.test;
 
-import ec.edu.epn.model.logic.TarjetaDeCredito;
+import ec.edu.epn.model.logic.ValidarTarjeta;
 import org.junit.Test;
 import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,7 +14,7 @@ public class TarjetaDeCreditoTest {
         String fechaExpiracion = "10/2026";
         String cvv = "967";
 
-        assertTrue(TarjetaDeCredito.validarTarjeta(numeroTarjeta.toCharArray(), fechaExpiracion, cvv));
+        assertTrue(ValidarTarjeta.validarTarjeta(numeroTarjeta.toCharArray(), fechaExpiracion, cvv));
     }
 
     @Test
@@ -23,7 +23,7 @@ public class TarjetaDeCreditoTest {
         String fechaExpiracion = "10/2026";
         String cvv = "967";
 
-        assertFalse(TarjetaDeCredito.validarTarjeta(numeroTarjeta.toCharArray(), fechaExpiracion, cvv));
+        assertFalse(ValidarTarjeta.validarTarjeta(numeroTarjeta.toCharArray(), fechaExpiracion, cvv));
     }
 
 }
