@@ -32,10 +32,9 @@
         contadorCarrito = 0; // Asegurarse de que haya un valor por defecto
         session.setAttribute("contadorCarrito", contadorCarrito); // Inicializar en la sesión
     } else {
-        HttpSession sessionActual = request.getSession();
-        CarritoDeCompras carrito = (CarritoDeCompras) sessionActual.getAttribute("carroDeCompras");
-        contadorCarrito = carrito.getVideojuegos().toArray().length;
-        session.setAttribute("contadorCarrito", contadorCarrito);
+        CarritoDeCompras carrito = (CarritoDeCompras) sessionInicio.getAttribute("carroDeCompras");
+        contadorCarrito = carrito.getVideojuegos().toArray().length; // Obtener la cantidad de videojuegos en el carrito
+        session.setAttribute("contadorCarrito", contadorCarrito); // Actualizar el contador en la sesión
     }
 %>
 <header>
@@ -62,11 +61,17 @@
             <input id="botonBuscar" type="submit" value="Buscar">
         </form>
     </div>
-    <a href="carritoCompras.jsp">
-        <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-        <!--Aquí va la modificacion-->
-        <span><%= contadorCarrito %></span>
-    </a>
+
+    <div class="carritoContainer">
+        <div class="contadorCarrito">
+            <span><%= contadorCarrito %></span>
+        </div>
+        <div class="carritoIcon">
+            <a href="carritoCompras.jsp">
+                <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
 </header>
 
 <h1 id="titulo">Bienvenido a la tienda de videojuegos</h1>
