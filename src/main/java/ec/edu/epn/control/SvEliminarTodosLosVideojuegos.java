@@ -30,7 +30,12 @@ public class SvEliminarTodosLosVideojuegos extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         CarritoDeCompras carroDeCompras = (CarritoDeCompras) session.getAttribute("carroDeCompras");
+        Integer contadorCarrito = (Integer) session.getAttribute("contadorCarrito");
         carroDeCompras.borrarTodosLosVideojuegos();
+        //Para disminuir el contador
+        contadorCarrito = carroDeCompras.getVideojuegos().toArray().length; // Obtener la cantidad de videojuegos en el carrito
+        session.setAttribute("contadorCarrito", contadorCarrito); // Actualizar el contador en la sesión
+
         session.setAttribute("carroDeCompras", carroDeCompras);
         response.sendRedirect("carritoCompras.jsp");
     }
