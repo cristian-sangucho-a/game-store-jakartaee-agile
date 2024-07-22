@@ -31,10 +31,6 @@
     if (contadorCarrito == null) {
         contadorCarrito = 0; // Asegurarse de que haya un valor por defecto
         session.setAttribute("contadorCarrito", contadorCarrito); // Inicializar en la sesión
-    } else {
-        CarritoDeCompras carrito = (CarritoDeCompras) sessionInicio.getAttribute("carroDeCompras");
-        contadorCarrito = carrito.getVideojuegos().toArray().length; // Obtener la cantidad de videojuegos en el carrito
-        session.setAttribute("contadorCarrito", contadorCarrito); // Actualizar el contador en la sesión
     }
 %>
 <header>

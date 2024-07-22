@@ -30,8 +30,13 @@ public class SvAgregarACarrito extends HttpServlet {
         VideojuegoDAO vDAO = new VideojuegoDAO();
         HttpSession session = request.getSession();
         CarritoDeCompras carroDeCompras = (CarritoDeCompras) session.getAttribute("carroDeCompras");
+        Integer contadorCarrito = (Integer) session.getAttribute("contadorCarrito");
         if (carroDeCompras == null) {carroDeCompras = new CarritoDeCompras();}
         carroDeCompras.agregarVideojuegoAlCarrito(vDAO.obtenerVideojuegoPorId(idVideojuego));
+        //Para el contador
+        contadorCarrito = carroDeCompras.getVideojuegos().toArray().length; // Obtener la cantidad de videojuegos en el carrito
+        session.setAttribute("contadorCarrito", contadorCarrito); // Actualizar el contador en la sesión
+
         session.setAttribute("carroDeCompras", carroDeCompras);
         response.sendRedirect("index.jsp");
     }
