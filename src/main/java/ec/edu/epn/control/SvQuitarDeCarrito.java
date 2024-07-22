@@ -28,9 +28,15 @@ public class SvQuitarDeCarrito extends HttpServlet{
         int idVideojuego = Integer.parseInt(request.getParameter("videojuegoId"));
         VideojuegoDAO vDAO = new VideojuegoDAO();
         HttpSession session = request.getSession();
+        Integer contadorCarrito = (Integer) session.getAttribute("contadorCarrito");
         CarritoDeCompras carroDeCompras = (CarritoDeCompras) session.getAttribute("carroDeCompras");
         if (carroDeCompras == null) {carroDeCompras = new CarritoDeCompras();}
         carroDeCompras.quitarVideojuegoDelCarrito(vDAO.obtenerVideojuegoPorId(idVideojuego));
+
+        //Para disminuir el contador
+        contadorCarrito = carroDeCompras.getVideojuegos().toArray().length; // Obtener la cantidad de videojuegos en el carrito
+        session.setAttribute("contadorCarrito", contadorCarrito); // Actualizar el contador en la sesión
+
         session.setAttribute("carroDeCompras", carroDeCompras);
         response.sendRedirect("carritoCompras.jsp");
     }
