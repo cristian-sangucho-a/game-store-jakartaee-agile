@@ -77,6 +77,6 @@ public class CarritoDeCompras {
      * @return La lista de videojuegos en el carrito.
      */
     public ArrayList<Videojuego> getVideojuegos() {
-        return videojuegos;
+        return this.videojuegos;
     }
 }

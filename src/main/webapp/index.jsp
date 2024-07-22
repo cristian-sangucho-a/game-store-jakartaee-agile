@@ -2,6 +2,7 @@
 <%@ page import="ec.edu.epn.model.entities.Videojuego" %>
 <%@ page import="ec.edu.epn.model.logic.VideojuegoDAO" %>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
+<%@ page import="ec.edu.epn.model.logic.CarritoDeCompras" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -30,6 +31,11 @@
     if (contadorCarrito == null) {
         contadorCarrito = 0; // Asegurarse de que haya un valor por defecto
         session.setAttribute("contadorCarrito", contadorCarrito); // Inicializar en la sesión
+    } else {
+        HttpSession sessionActual = request.getSession();
+        CarritoDeCompras carrito = (CarritoDeCompras) sessionActual.getAttribute("carroDeCompras");
+        contadorCarrito = carrito.getVideojuegos().toArray().length;
+        session.setAttribute("contadorCarrito", contadorCarrito);
     }
 %>
 <header>
