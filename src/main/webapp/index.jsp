@@ -23,6 +23,7 @@
     </script>
     <script src="https://kit.fontawesome.com/1a501b4a16.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles1.css">
+    <link rel="stylesheet" href="stylesCarrito.css">
 </head>
 <body>
 <%
