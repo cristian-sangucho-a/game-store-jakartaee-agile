@@ -3,7 +3,7 @@ package ec.edu.epn.modelo.test;
 
 import ec.edu.epn.model.entities.Videojuego;
 import ec.edu.epn.model.logic.CarritoDeCompras;
-import ec.edu.epn.model.logic.TarjetaDeCredito;
+import ec.edu.epn.model.logic.ValidarTarjeta;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -79,7 +79,7 @@ public class CarritoDeComprasTest {
 
         //Proceso de pago
         double totalCompra = carritoDeCompras.getTotalCompra();
-        boolean esValidaLaTarjeta = TarjetaDeCredito.validarTarjeta("4565094303104501".toCharArray(), "12/2024", "389"); //Despues se constrola desde el servlet
+        boolean esValidaLaTarjeta = ValidarTarjeta.validarTarjeta("4565094303104501".toCharArray(), "12/2024", "389"); //Despues se constrola desde el servlet
         assertTrue(carritoDeCompras.consolidarCompra(totalCompra, esValidaLaTarjeta));
     }
 
@@ -97,7 +97,7 @@ public class CarritoDeComprasTest {
 
         //Proceso de pago
         double totalCompra = carritoDeCompras.getTotalCompra();
-        boolean esValidaLaTarjeta = TarjetaDeCredito.validarTarjeta("1234567890123456".toCharArray(), "05/2022", "3899"); //Despues se constrola desde el servlet
+        boolean esValidaLaTarjeta = ValidarTarjeta.validarTarjeta("1234567890123456".toCharArray(), "05/2022", "3899"); //Despues se constrola desde el servlet
         assertFalse(carritoDeCompras.consolidarCompra(totalCompra, esValidaLaTarjeta));
     }
 
