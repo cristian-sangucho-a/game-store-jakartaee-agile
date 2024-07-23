@@ -57,7 +57,6 @@ public class SvPagarCarrito  extends HttpServlet {
         }catch (Exception e){
             e.printStackTrace();
         }
-        response.sendRedirect("Pago.jsp");
     }
 }
 
