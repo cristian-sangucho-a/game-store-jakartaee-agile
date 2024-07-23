@@ -3,7 +3,6 @@ package ec.edu.epn.modelo.test;
 
 import ec.edu.epn.model.entities.Videojuego;
 import ec.edu.epn.model.logic.CarritoDeCompras;
-import ec.edu.epn.model.logic.ValidarTarjeta;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -63,4 +62,5 @@ public class CarritoDeComprasTest {
         carritoDeCompras.agregarVideojuegoAlCarrito(videojuego2);
         assertEquals(30.0, carritoDeCompras.getTotalCompra(), 0.001);
     }
+
 }
