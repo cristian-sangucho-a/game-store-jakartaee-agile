@@ -9,6 +9,7 @@ public class Pago {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private double totalCompra;
+    @Transient
     private String titularDeLaTarjeta;
     private Date fechaDelPago;
 

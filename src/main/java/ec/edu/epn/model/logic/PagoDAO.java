@@ -13,7 +13,7 @@ public class PagoDAO {
     public Pago obtenerPagoPorId(int idPago) {
         EntityManager entityManager = ManejoEntidadPersistencia.getEntityManager();
         try{
-            Query query = entityManager.createQuery("SELECT v FROM Pago v WHERE v.id LIKE :idPago");
+            Query query = entityManager.createQuery("SELECT v FROM Pago v WHERE v.id = :idPago");
             query.setParameter("idPago", "%" + idPago + "%");
             return (Pago) query.getSingleResult();
         } finally {
