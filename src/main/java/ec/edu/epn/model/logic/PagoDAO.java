@@ -1,9 +1,12 @@
 package ec.edu.epn.model.logic;
 
+import ec.edu.epn.model.entities.DetallePago;
 import ec.edu.epn.model.entities.Pago;
 import ec.edu.epn.services.ManejoEntidadPersistencia;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
+
+import java.util.ArrayList;
 
 public class PagoDAO {
 
@@ -47,10 +50,11 @@ public class PagoDAO {
     }
 
 
-    public Pago consolidarCompra(double totalCompra, String titularDeLaTarjeta) {
+    public Pago consolidarCompra(double totalCompra, String titularDeLaTarjeta, ArrayList<DetallePago> detallesDePago) {
         Pago pago = new Pago();
         pago.setTotalCompra(totalCompra);
         pago.setTitularDeLaTarjeta(titularDeLaTarjeta);
+        pago.setDetallesPagos(detallesDePago);
         almacenarPago(pago);
         return pago;
     }

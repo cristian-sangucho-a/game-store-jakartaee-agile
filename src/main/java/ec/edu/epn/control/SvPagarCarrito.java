@@ -1,6 +1,8 @@
 package ec.edu.epn.control;
 
+import ec.edu.epn.model.entities.DetallePago;
 import ec.edu.epn.model.entities.Pago;
+import ec.edu.epn.model.entities.Videojuego;
 import ec.edu.epn.model.logic.CarritoDeCompras;
 import ec.edu.epn.model.logic.PagoDAO;
 import ec.edu.epn.model.logic.ValidarTarjeta;
@@ -11,6 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 @WebServlet(name = "SvPagarCarrito", value = "/SvPagarCarrito")
 public class SvPagarCarrito  extends HttpServlet {
@@ -32,16 +35,22 @@ public class SvPagarCarrito  extends HttpServlet {
             response.sendRedirect("index.jsp");
             return;
         }
-        PagoDAO pagoDao = new PagoDAO();
+        PagoDAO pagoDAO = new PagoDAO();
         HttpSession session = request.getSession();
         CarritoDeCompras carroDeCompras = (CarritoDeCompras) session.getAttribute("carroDeCompras");
-        //todo
+        double totalCarroDeCompra = carroDeCompras.getTotalCompra();
+        ArrayList<Videojuego> videojuegos = carroDeCompras.getVideojuegos();
+        ArrayList<DetallePago> detallesDePago =  new ArrayList<DetallePago>();
+        for (Videojuego videojuego : videojuegos) {
+            DetallePago detallePago = new DetallePago();
+            detallePago.setVideojuego(videojuego);
+            detallesDePago.add(detallePago);
+        }
 
         //cuando ya acaba de pagarse
         carroDeCompras.borrarTodosLosVideojuegos();
         session.setAttribute("carroDeCompras",carroDeCompras);
-        //pagoDao.consolidarCompra(carroDeCompras.getTotalCompra(), titularDeLaTarjeta);
-        Pago pago = pagoDao.consolidarCompra(carroDeCompras.getTotalCompra(), titularDeLaTarjeta);
+        Pago pago = pagoDAO.consolidarCompra(totalCarroDeCompra, titularDeLaTarjeta, detallesDePago);
         request.setAttribute("pago", pago);
         try{
             request.getRequestDispatcher("pagoExitoso.jsp").forward(request, response);
@@ -51,3 +60,5 @@ public class SvPagarCarrito  extends HttpServlet {
         response.sendRedirect("Pago.jsp");
     }
 }
+
+
