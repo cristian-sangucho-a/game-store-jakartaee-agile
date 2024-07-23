@@ -9,14 +9,16 @@ public class Pago {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private double totalCompra;
+    private String titularDeLaTarjeta;
     private Date fechaDelPago;
 
     public Pago() {
     }
 
-    public Pago(double totalCompra, Date fechaDelPago) {
+    public Pago(double totalCompra, Date fechaDelPago, String titularDeLaTarjeta) {
         this.totalCompra = totalCompra;
         this.fechaDelPago = fechaDelPago;
+        this.titularDeLaTarjeta = titularDeLaTarjeta;
     }
 
     public int getId() {
@@ -41,6 +43,14 @@ public class Pago {
 
     public void setFechaDelPago(Date fechaDelPago) {
         this.fechaDelPago = fechaDelPago;
+    }
+
+    public String getTitularDeLaTarjeta() {
+        return titularDeLaTarjeta;
+    }
+
+    public void setTitularDeLaTarjeta(String titularDeLaTarjeta) {
+        this.titularDeLaTarjeta = titularDeLaTarjeta;
     }
 
     @Override

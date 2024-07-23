@@ -1,7 +1,7 @@
 package ec.edu.epn.control;
 
 import ec.edu.epn.model.logic.CarritoDeCompras;
-import ec.edu.epn.model.entities.Pago;
+import ec.edu.epn.model.logic.PagoDAO;
 import ec.edu.epn.model.logic.ValidarTarjeta;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -31,7 +31,7 @@ public class SvPagarCarrito  extends HttpServlet {
             response.sendRedirect("index.jsp");
             return;
         }
-        Pago pago = new Pago();
+        PagoDAO pago = new PagoDAO();
         HttpSession session = request.getSession();
         CarritoDeCompras carroDeCompras = (CarritoDeCompras) session.getAttribute("carroDeCompras");
 
