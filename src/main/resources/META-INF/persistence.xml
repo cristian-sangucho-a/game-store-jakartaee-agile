@@ -2,6 +2,7 @@
     <persistence-unit name="GR01_1BP1_622_24A_PU">
         <class>ec.edu.epn.model.entities.Videojuego</class>
         <class>ec.edu.epn.model.entities.Pago</class>
+        <class>ec.edu.epn.model.entities.DetallePago</class>
         <properties>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:sqlserver://servidortiendadevideojuejos.database.windows.net:1433;database=TiendaVideojuegosC3J2"/>
             <property name="jakarta.persistence.jdbc.user" value="adminTienda"/>

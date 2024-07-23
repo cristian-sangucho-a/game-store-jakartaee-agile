@@ -8,15 +8,18 @@ public class DetallePago {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Videojuego videojuego;
+    @ManyToOne
+    private Pago pago;
 
     public DetallePago() {
     }
 
-    public DetallePago(int id, Videojuego videojuego) {
+    public DetallePago(int id, Videojuego videojuego, Pago pago) {
         this.id = id;
         this.videojuego = videojuego;
+        this.pago = pago;
     }
 
     public int getId() {
@@ -33,5 +36,9 @@ public class DetallePago {
 
     public void setVideojuego(Videojuego videojuego) {
         this.videojuego = videojuego;
+    }
+
+    public Pago getPago() {
+        return pago;
     }
 }

@@ -4,6 +4,8 @@ import ec.edu.epn.model.entities.*;
 import ec.edu.epn.model.logic.*;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import java.util.ArrayList;
 import java.util.Date;
 import static org.junit.Assert.assertTrue;
 
@@ -32,8 +34,15 @@ public class PagoTest {
         //Proceso de pago
         double totalCompra = carritoDeCompras.getTotalCompra();
         Date fechaDelPago = new Date();
+        DetallePago detallePago = new DetallePago();
+        detallePago.setVideojuego(videojuego1);
+        detallePago.setVideojuego(videojuego2);
+        ArrayList<DetallePago> detallesPagos = new ArrayList<>();
+        detallesPagos.add(detallePago);
         pago.setTotalCompra(totalCompra);
         pago.setFechaDelPago(fechaDelPago);
+        pago.setTitularDeLaTarjeta("Cristian Sangucho");
+        pago.setDetallesPagos(detallesPagos);
         pagoDAO.almacenarPago(pago);
         assertTrue(pagoDAO.obtenerPagoPorId(1).getId() == 1);
     }
