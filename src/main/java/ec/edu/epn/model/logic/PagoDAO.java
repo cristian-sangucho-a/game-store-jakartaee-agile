@@ -5,9 +5,6 @@ import ec.edu.epn.services.ManejoEntidadPersistencia;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 
-import java.util.Date;
-import java.util.List;
-
 public class PagoDAO {
 
     public PagoDAO() {
@@ -35,7 +32,7 @@ public class PagoDAO {
         }
     }
 
-    public void consolidarPago(Pago pagoAPersistir){
+    public void almacenarPago(Pago pagoAPersistir){
         EntityManager entityManager = ManejoEntidadPersistencia.getEntityManager();
         try{
             entityManager.getTransaction().begin();
@@ -48,5 +45,8 @@ public class PagoDAO {
             entityManager.close();
         }
     }
+
+
+
 
 }

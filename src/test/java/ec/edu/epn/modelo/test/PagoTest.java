@@ -34,7 +34,7 @@ public class PagoTest {
         pago.setId(1);
         pago.setTotalCompra(totalCompra);
         pago.setFechaDelPago(fechaDelPago);
-        pagoDAO.consolidarPago(pago);
+        pagoDAO.almacenarPago(pago);
         assertTrue(pagoDAO.obtenerPagoPorId(1) == pago);
     }
 }
