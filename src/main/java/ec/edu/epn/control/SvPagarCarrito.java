@@ -1,5 +1,6 @@
 package ec.edu.epn.control;
 
+import ec.edu.epn.model.entities.Pago;
 import ec.edu.epn.model.logic.CarritoDeCompras;
 import ec.edu.epn.model.logic.PagoDAO;
 import ec.edu.epn.model.logic.ValidarTarjeta;
@@ -15,10 +16,10 @@ import java.io.IOException;
 public class SvPagarCarrito  extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String numeroTarjeta = request.getParameter("numeroTarjeta");
-        String fechaExpiracion = request.getParameter("fechaExpiracion");
-        String cvv = request.getParameter("CVV");
-        String titularDeLaTarjeta = request.getParameter("titularDeLaTarjeta");
+        String numeroTarjeta = request.getParameter("numero-tarjeta");
+        String fechaExpiracion = request.getParameter("fecha-expiracion");
+        String cvv = request.getParameter("cvv-tarjeta");
+        String titularDeLaTarjeta = request.getParameter("titular-tarjeta");
 
         pagar(request, response, numeroTarjeta, fechaExpiracion, cvv, titularDeLaTarjeta);
     }
@@ -31,12 +32,22 @@ public class SvPagarCarrito  extends HttpServlet {
             response.sendRedirect("index.jsp");
             return;
         }
-        PagoDAO pago = new PagoDAO();
+        PagoDAO pagoDao = new PagoDAO();
         HttpSession session = request.getSession();
         CarritoDeCompras carroDeCompras = (CarritoDeCompras) session.getAttribute("carroDeCompras");
+        //todo
 
-        //pago.consolidarCompra(carroDeCompras.getTotalCompra(), titularDeLaTarjeta);
-
+        //cuando ya acaba de pagarse
+        carroDeCompras.borrarTodosLosVideojuegos();
+        session.setAttribute("carroDeCompras",carroDeCompras);
+        //pagoDao.consolidarCompra(carroDeCompras.getTotalCompra(), titularDeLaTarjeta);
+        Pago pago = pagoDao.consolidarCompra(carroDeCompras.getTotalCompra(), titularDeLaTarjeta);
+        request.setAttribute("pago", pago);
+        try{
+            request.getRequestDispatcher("pagoExitoso.jsp").forward(request, response);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         response.sendRedirect("Pago.jsp");
     }
 }

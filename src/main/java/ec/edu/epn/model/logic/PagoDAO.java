@@ -47,10 +47,11 @@ public class PagoDAO {
     }
 
 
-    public void consolidarCompra(double totalCompra, String titularDeLaTarjeta) {
+    public Pago consolidarCompra(double totalCompra, String titularDeLaTarjeta) {
         Pago pago = new Pago();
         pago.setTotalCompra(totalCompra);
         pago.setTitularDeLaTarjeta(titularDeLaTarjeta);
         almacenarPago(pago);
+        return pago;
     }
 }

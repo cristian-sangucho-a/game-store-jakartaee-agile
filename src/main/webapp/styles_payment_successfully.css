@@ -1,0 +1,46 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+#confirmacion-pago {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+#confirmacion-pago h1 {
+    color: #6494d2;
+    margin-bottom: 20px;
+}
+
+#confirmacion-pago h2 {
+    margin-top: 20px;
+    color: #333;
+}
+
+#confirmacion-pago ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#confirmacion-pago ul li {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    margin-top: 5px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+#confirmacion-pago p {
+    font-size: 16px;
+}
+
+#fecha-compra {
+    font-weight: bold;
+}
