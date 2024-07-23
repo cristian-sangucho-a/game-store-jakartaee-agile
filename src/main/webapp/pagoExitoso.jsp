@@ -1,5 +1,7 @@
 <%@ page import="ec.edu.epn.model.entities.Pago" %>
-<%@ page import="ec.edu.epn.model.entities.DetallePago" %><%--
+<%@ page import="ec.edu.epn.model.entities.DetallePago" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %><%--
   Created by IntelliJ IDEA.
   User: carla
   Date: 7/23/2024
@@ -17,10 +19,13 @@
 
 </head>
 <body>
-<% Pago pago = (Pago) request.getAttribute("pago"); %>
+<% Pago pago = (Pago) request.getAttribute("pago");
+    SimpleDateFormat format = new SimpleDateFormat("HH:mm MMM yyyy");
+    String fechaFormateada = format.format(pago.getFechaDelPago());%>
+
 <section id="confirmacion-pago">
     <h1><i class="fa fa-check-circle" aria-hidden="true"></i> Pago exitoso</h1>
-    <p>Fecha de compra: <span id="fecha-compra"><%= pago.getFechaDelPago() %></span></p>
+    <p>Fecha de compra: <span id="fecha-compra"><%= fechaFormateada %></span></p>
     <p>Precio total: <span id="precio-total">$<%= pago.getTotalCompra() %></span></p>
     <p>Titular de la tarjeta: <span id="titular-tarjeta"><%= pago.getTitularDeLaTarjeta() %></span></p>
     <h2>Detalle de la compra:</h2>

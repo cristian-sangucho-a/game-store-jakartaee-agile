@@ -7,6 +7,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class PagoDAO {
 
@@ -55,6 +56,7 @@ public class PagoDAO {
         pago.setTotalCompra(totalCompra);
         pago.setTitularDeLaTarjeta(titularDeLaTarjeta);
         pago.setDetallesPagos(detallesDePago);
+        pago.setFechaDelPago(new Date());
         almacenarPago(pago);
         return pago;
     }
