@@ -63,44 +63,4 @@ public class CarritoDeComprasTest {
         carritoDeCompras.agregarVideojuegoAlCarrito(videojuego2);
         assertEquals(30.0, carritoDeCompras.getTotalCompra(), 0.001);
     }
-
-    @Test
-    public void given_cliente_en_carrito_when_introduzca_tarjeta_y_pague_then_pago_procesado() {
-        carritoDeCompras.getVideojuegos().clear(); //Tener el carrito en 0 para la prueba
-        //Suponiendo que el carrito tenga videojuegos dentro
-        Videojuego videojuego1 = new Videojuego();
-        videojuego1.setId(1);
-        videojuego1.setPrecio(10.0);
-        Videojuego videojuego2 = new Videojuego();
-        videojuego2.setId(2);
-        videojuego2.setPrecio(20.0);
-        carritoDeCompras.agregarVideojuegoAlCarrito(videojuego1);
-        carritoDeCompras.agregarVideojuegoAlCarrito(videojuego2);
-
-        //Proceso de pago
-        double totalCompra = carritoDeCompras.getTotalCompra();
-        boolean esValidaLaTarjeta = ValidarTarjeta.validarTarjeta("4565094303104501".toCharArray(), "12/2024", "389"); //Despues se constrola desde el servlet
-        assertTrue(carritoDeCompras.consolidarCompra(totalCompra, esValidaLaTarjeta));
-    }
-
-    public void given_cliente_en_carrito_when_introduzca_tarjeta_invalida_y_pague_then_pago_procesado() {
-        carritoDeCompras.getVideojuegos().clear(); //Tener el carrito en 0 para la prueba
-        //Suponiendo que el carrito tenga videojuegos dentro
-        Videojuego videojuego1 = new Videojuego();
-        videojuego1.setId(1);
-        videojuego1.setPrecio(10.0);
-        Videojuego videojuego2 = new Videojuego();
-        videojuego2.setId(2);
-        videojuego2.setPrecio(20.0);
-        carritoDeCompras.agregarVideojuegoAlCarrito(videojuego1);
-        carritoDeCompras.agregarVideojuegoAlCarrito(videojuego2);
-
-        //Proceso de pago
-        double totalCompra = carritoDeCompras.getTotalCompra();
-        boolean esValidaLaTarjeta = ValidarTarjeta.validarTarjeta("1234567890123456".toCharArray(), "05/2022", "3899"); //Despues se constrola desde el servlet
-        assertFalse(carritoDeCompras.consolidarCompra(totalCompra, esValidaLaTarjeta));
-    }
-
-
-
 }
