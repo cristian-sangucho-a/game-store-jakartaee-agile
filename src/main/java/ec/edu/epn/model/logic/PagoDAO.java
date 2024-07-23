@@ -52,6 +52,5 @@ public class PagoDAO {
         pago.setTotalCompra(totalCompra);
         pago.setTitularDeLaTarjeta(titularDeLaTarjeta);
         almacenarPago(pago);
-
     }
 }
