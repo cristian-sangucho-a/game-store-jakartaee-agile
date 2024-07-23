@@ -10,9 +10,9 @@
 <body>
 <!-- Título de la página del carrito de compras -->
 <h1>Carrito de Compras</h1>
-<!-- Botón para volver a la página de inicio -->
+<!-- Botón para ir a la sección de pagos -->
 <div class="boton-volver">
-    <a href="index.jsp">Volver a página de inicio</a>
+    <a href="seccionPagos.jsp">Pagar Carrito</a>
 </div>
 <!-- Contenedor para los elementos del carrito de compras -->
 <div class="container">
@@ -53,10 +53,15 @@
     <div class="total-price">
         <h2>Total: $<%= carrito.getTotalCompra() %></h2>
     </div>
-    <!-- Botón para vaciar el carrito -->
-    <form action="SvEliminarTodosLosVideojuegos" method="POST">
-        <button type="submit" class="btn-vaciar">Vaciar Carrito</button>
-    </form>
+    <!-- Botón para vaciar el carrito y botón para pagar -->
+    <div class="button-group">
+        <form action="SvEliminarTodosLosVideojuegos" method="POST" style="display: inline;">
+            <button type="submit" class="btn-vaciar">Vaciar Carrito</button>
+        </form>
+        <form action="seccionPagos.jsp" method="GET" style="display: inline;">
+            <button type="submit" class="btn-pagar">Pagar Carrito</button>
+        </form>
+    </div>
     <%
         }
     %>
