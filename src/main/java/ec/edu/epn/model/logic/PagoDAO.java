@@ -14,7 +14,7 @@ public class PagoDAO {
         EntityManager entityManager = ManejoEntidadPersistencia.getEntityManager();
         try{
             Query query = entityManager.createQuery("SELECT v FROM Pago v WHERE v.id = :idPago");
-            query.setParameter("idPago", "%" + idPago + "%");
+            query.setParameter("idPago", idPago);
             return (Pago) query.getSingleResult();
         } finally {
             entityManager.close();
