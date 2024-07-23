@@ -15,6 +15,8 @@ public class PagoTest {
     @BeforeClass
     public static void setUpClass() {
         carritoDeCompras = new CarritoDeCompras();
+        pagoDAO = new PagoDAO();
+        pago = new Pago();
     }
 
     @Test
