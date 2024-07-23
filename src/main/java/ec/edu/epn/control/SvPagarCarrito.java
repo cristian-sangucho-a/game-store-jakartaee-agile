@@ -35,7 +35,7 @@ public class SvPagarCarrito  extends HttpServlet {
         HttpSession session = request.getSession();
         CarritoDeCompras carroDeCompras = (CarritoDeCompras) session.getAttribute("carroDeCompras");
 
-        pago.consolidarCompra(carroDeCompras.getTotalCompra(), titularDeLaTarjeta);
+        //pago.consolidarCompra(carroDeCompras.getTotalCompra(), titularDeLaTarjeta);
 
         response.sendRedirect("Pago.jsp");
     }
