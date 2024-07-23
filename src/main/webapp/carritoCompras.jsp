@@ -12,7 +12,7 @@
 <h1>Carrito de Compras</h1>
 <!-- Botón para ir a la sección de pagos -->
 <div class="boton-volver">
-    <a href="seccionPagos.jsp">Pagar Carrito</a>
+    <a href="index.jsp">Volver a página de inicio</a>
 </div>
 <!-- Contenedor para los elementos del carrito de compras -->
 <div class="container">

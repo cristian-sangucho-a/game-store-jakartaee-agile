@@ -44,6 +44,10 @@
         </div>
         <button type="submit">Pagar</button>
     </form>
+    <!-- Botón para regresar al carrito de compras -->
+    <form action="carritoCompras.jsp" method="GET">
+        <button type="submit" class="btn-regresar">Regresar a Carrito de Compras</button>
+    </form>
 </section>
 </body>
 </html>
