@@ -21,19 +21,23 @@ import jakarta.persistence.Query;
  * Clase para manejar listas
  */
 import java.util.List;
-
+/**
+ * Clase VideojuegoDAO que gestiona las operaciones de base de datos para los objetos Videojuego.
+ * Proporciona métodos para obtener videojuegos por diferentes criterios como título, rango de precio,
+ * desarrollador, y por ID. También permite obtener todos los videojuegos disponibles en la base de datos.
+ * Utiliza {@link EntityManager} para interactuar con la base de datos a través de JPA.
+ */
 public class VideojuegoDAO {
     /**
-     * Constructor vacío para inicializar el DAO para la clase videojuego
+     * Constructor vacío para inicializar el DAO para la clase videojuego.
      */
     public VideojuegoDAO() {
 
     }
 
     /**
-     * Método para obtener todos los videojuegos de la base de datos
-     * @return un objeto de tipo Query que luego se parsea a List
-     * @see Query
+     * Método para obtener todos los videojuegos de la base de datos.
+     * @return una lista de todos los videojuegos disponibles en la base de datos.
      */
     public List<Videojuego> obtenerTodosLosVideojuego() {
         EntityManager entityManager = ManejoEntidadPersistencia.getEntityManager();
@@ -46,9 +50,9 @@ public class VideojuegoDAO {
     }
 
     /**
-     * Método para obtener los videojuegos que contengan un título
-     * @param tituloDelVideojuego el título obtenido de un formulario
-     * @return un objeto de tipo Query que luego se parsea a List
+     * Método para obtener los videojuegos que contengan un título específico.
+     * @param tituloDelVideojuego el título obtenido de un formulario para buscar coincidencias.
+     * @return una lista de videojuegos que coinciden con el título proporcionado.
      */
     public List<Videojuego> obtenerVideojuegoPorTitulo(String tituloDelVideojuego) {
         EntityManager entityManager = ManejoEntidadPersistencia.getEntityManager();
@@ -62,10 +66,10 @@ public class VideojuegoDAO {
     }
 
     /**
-     * Método que obtiene los videojuegos por un rango de precio específico
-     * @param precioMinimo el precio mínimo que se espera
-     * @param precioMaximo el precio máximo como límite superior
-     * @return un objeto de tipo Query que luego se parsea a List
+     * Método que obtiene los videojuegos por un rango de precio específico.
+     * @param precioMinimo el precio mínimo que se espera.
+     * @param precioMaximo el precio máximo como límite superior.
+     * @return una lista de videojuegos cuyo precio se encuentra dentro del rango especificado.
      */
     public List<Videojuego> obtenerVideojuegosPorRangoDePrecio(double precioMinimo, double precioMaximo) {
         EntityManager entityManager = ManejoEntidadPersistencia.getEntityManager();
@@ -79,6 +83,11 @@ public class VideojuegoDAO {
         }
     }
 
+    /**
+     * Método para obtener videojuegos desarrollados por un desarrollador específico.
+     * @param nombreDeDesarrollador el nombre del desarrollador para buscar coincidencias.
+     * @return una lista de videojuegos desarrollados por el desarrollador especificado.
+     */
     public List<Videojuego> obtenerVideojuegoPorDesarrollador(String nombreDeDesarrollador) {
         EntityManager entityManager = ManejoEntidadPersistencia.getEntityManager();
         try{
@@ -90,6 +99,11 @@ public class VideojuegoDAO {
         }
     }
 
+    /**
+     * Método para obtener un videojuego por su identificador único.
+     * @param IdVideojuego el identificador único del videojuego a buscar.
+     * @return el videojuego que coincide con el identificador proporcionado.
+     */
     public Videojuego obtenerVideojuegoPorId(int IdVideojuego) {
         EntityManager entityManager = ManejoEntidadPersistencia.getEntityManager();
         try{

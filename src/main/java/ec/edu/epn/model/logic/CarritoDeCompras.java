@@ -79,8 +79,4 @@ public class CarritoDeCompras {
     public ArrayList<Videojuego> getVideojuegos() {
         return this.videojuegos;
     }
-
-    public boolean consolidarCompra(double totalCompra, boolean esValidaLaTarjeta) {
-        return true; //implementar para que sea verdadero que se ha consolidado la compra
-    }
 }
