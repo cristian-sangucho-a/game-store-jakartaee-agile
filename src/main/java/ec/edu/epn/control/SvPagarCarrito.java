@@ -35,6 +35,7 @@ public class SvPagarCarrito  extends HttpServlet {
         }
         PagoDAO pagoDAO = new PagoDAO();
         HttpSession session = request.getSession();
+        Integer contadorCarrito = (Integer) session.getAttribute("contadorCarrito");
         CarritoDeCompras carroDeCompras = (CarritoDeCompras) session.getAttribute("carroDeCompras");
         double totalCarroDeCompra = carroDeCompras.getTotalCompra();
         ArrayList<Videojuego> videojuegos = carroDeCompras.getVideojuegos();
@@ -49,6 +50,8 @@ public class SvPagarCarrito  extends HttpServlet {
         carroDeCompras.borrarTodosLosVideojuegos();
         session.setAttribute("carroDeCompras",carroDeCompras);
         Pago pago = pagoDAO.consolidarCompra(totalCarroDeCompra, titularDeLaTarjeta, detallesDePago);
+        contadorCarrito = carroDeCompras.getVideojuegos().toArray().length; // Obtener la cantidad de videojuegos en el carrito
+        session.setAttribute("contadorCarrito", contadorCarrito); // Actualizar el contador en la sesión
         request.setAttribute("pago", pago);
         try{
             request.getRequestDispatcher("pagoExitoso.jsp").forward(request, response);
