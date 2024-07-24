@@ -56,7 +56,6 @@ public class PagoDAO {
         pago.setTotalCompra(totalCompra);
         pago.setTitularDeLaTarjeta(titularDeLaTarjeta);
         pago.setDetallesPagos(detallesDePago);
-        pago.setFechaDelPago(new Date());
         almacenarPago(pago);
         return pago;
     }

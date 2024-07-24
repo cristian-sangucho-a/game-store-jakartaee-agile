@@ -16,6 +16,7 @@ public class Pago {
     private ArrayList<DetallePago> detallesPagos;
 
     public Pago() {
+        this.fechaDelPago = new Date();
     }
 
     public Pago(double totalCompra, Date fechaDelPago, String titularDeLaTarjeta, ArrayList<DetallePago> detallesPagos) {
