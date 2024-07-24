@@ -34,6 +34,9 @@
         <li><%= detalle.getVideojuego().getTitulo() %> - Precio: $<%= detalle.getVideojuego().getPrecio() %></li>
         <% } %>
     </ul>
+    <form action="index.jsp">
+        <button type="submit" class="btn-regresar">Regresar a la página de inicio</button>
+    </form>
 </section>
 </body>
 </html>
