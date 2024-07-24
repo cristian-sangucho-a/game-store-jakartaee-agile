@@ -86,7 +86,7 @@ public class PagoTest {
         pago.setDetallesPagos(detallesPagos);
         pago.setTitularDeLaTarjeta("Cristian Sangucho");
         System.out.println(pago.toString());
-        String comparar = "Pago{id=0, totalCompra=20.0, titularDeLaTarjeta='Cristian Sangucho', fechaDelPago=Sun Jul 23 10:30:00 ECT 2023, detallesPagos=[DetallePago{id=0, videojuego=Videojuego{id=0, titulo='Vid1', precio=20.0, Desarrollador='Des1', imageData=null}}, DetallePago{id=0, videojuego=Videojuego{id=0, titulo='Vid2', precio=15.0, Desarrollador='Des2', imageData=null}}]}";
+        String comparar = "Pago{id=0, totalCompra=20.0, titularDeLaTarjeta='Cristian Sangucho', fechaDelPago=Sun Jul 23 10:30:00 UTC 2023, detallesPagos=[DetallePago{id=0, videojuego=Videojuego{id=0, titulo='Vid1', precio=20.0, Desarrollador='Des1', imageData=null}}, DetallePago{id=0, videojuego=Videojuego{id=0, titulo='Vid2', precio=15.0, Desarrollador='Des2', imageData=null}}]}";
         assertEquals(pago.toString(), comparar);
     }
 }
