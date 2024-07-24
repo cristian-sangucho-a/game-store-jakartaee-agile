@@ -38,6 +38,14 @@ public class DetallePago {
         this.videojuego = videojuego;
     }
 
+    @Override
+    public String toString() {
+        return "DetallePago{" +
+                "id=" + id +
+                ", videojuego=" + videojuego +
+                '}';
+    }
+
     public Pago getPago() {
         return pago;
     }
