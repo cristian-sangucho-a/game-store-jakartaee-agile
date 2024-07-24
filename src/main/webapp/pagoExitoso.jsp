@@ -20,7 +20,7 @@
 </head>
 <body>
 <% Pago pago = (Pago) request.getAttribute("pago");
-    SimpleDateFormat format = new SimpleDateFormat("HH:mm MMM yyyy");
+    SimpleDateFormat format = new SimpleDateFormat("HH:mm dd MMM yyyy");
     String fechaFormateada = format.format(pago.getFechaDelPago());%>
 
 <section id="confirmacion-pago">
