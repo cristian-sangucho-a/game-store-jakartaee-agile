@@ -16,6 +16,9 @@
 </head>
 <body>
 <section id="seccion-pago">
+    <form action="carritoCompras.jsp">
+        <button type="submit" class="btn-regresar"><i class="fas fa-arrow-left"></i></button>
+    </form>
     <div class="contenedor-icono">
         <i class="fa-solid fa-bag-shopping"></i>
     </div>
@@ -49,11 +52,7 @@
                 <input type="text" id="titular-tarjeta" name="titular-tarjeta" placeholder="Titular de la Tarjeta" required>
             </div>
         </div>
-        <button type="submit">Pagar</button>
-    </form>
-    <!-- Botón para regresar al carrito de compras -->
-    <form action="carritoCompras.jsp">
-        <button type="submit" class="btn-regresar">Regresar a Carrito de Compras</button>
+        <button type="submit" class="btn-pagar">Pagar</button>
     </form>
 </section>
 </body>

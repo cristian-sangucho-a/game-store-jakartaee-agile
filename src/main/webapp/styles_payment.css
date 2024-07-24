@@ -19,9 +19,8 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 420px;
-    max-height: 460px;
-    height: 100%;
     margin: auto;
+    position: relative;
 }
 
 .contenedor-icono {
@@ -65,7 +64,26 @@ input[type="text"]:focus {
     outline: none;
 }
 
-button[type="submit"] {
+
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.btn-regresar {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    padding: 5px;
+    cursor: pointer;
+    color: #007bff;
+    transition: background-color 0.3s ease;
+}
+
+.btn-pagar{
     width: 100%;
     padding: 10px;
     border: none;
@@ -75,9 +93,5 @@ button[type="submit"] {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 10%;
-}
-
-button[type="submit"]:hover {
-    background-color: #0056b3;
+    margin-top: 20px;
 }
