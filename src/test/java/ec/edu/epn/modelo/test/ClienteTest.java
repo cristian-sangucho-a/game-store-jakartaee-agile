@@ -52,7 +52,7 @@ public class ClienteTest {
     public void given_cliente_en_login_when_introduzca_usuario_incorrecto_y_contrasenia_incorrecta_then_se_muestra_index() {
         cliente.setCorreo("cristian.apellido@gmail.com");
         cliente.setContrasenia("202020");
-        assertFalse(clienteDAO.existeCliente(cliente) == 2); //no existe el usuario
+        assertTrue(clienteDAO.existeCliente(cliente) == 2); //no existe el usuario
         System.out.println("Acceso denegado, cliente no existe, redirigiendo a registrarse.jsp");
     }
 }
