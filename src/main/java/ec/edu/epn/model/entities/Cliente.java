@@ -3,7 +3,7 @@ package ec.edu.epn.model.entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table
+@Table(name = "Cliente")
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,9 +17,10 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(String correo, String contrasenia) {
+    public Cliente(String correo, String contrasenia, boolean esAdmin) {
         this.correo = correo;
         this.contrasenia = contrasenia;
+        this.esAdmin = esAdmin;
     }
 
     public Cliente(int id, String nombre,  String apellido, String correo, String contrasenia, boolean esAdmin) {
