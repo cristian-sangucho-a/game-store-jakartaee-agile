@@ -40,22 +40,18 @@ public class ClienteDAO {
     public int existeCliente(Cliente cliente) {
         EntityManager entityManager = ManejoEntidadPersistencia.getEntityManager();
         try {
-            // Check if the client exists with the given email and password
             Query query = entityManager.createQuery("SELECT v FROM Cliente v WHERE v.correo = :correo AND v.contrasenia = :contrasenia");
             query.setParameter("correo", cliente.getCorreo());
             query.setParameter("contrasenia", cliente.getContrasenia());
             if (!query.getResultList().isEmpty()) {
-                return 0; // Client exists with the given email and password
+                return 0;
             }
-
-            // Check if the client exists with the given email only
             query = entityManager.createQuery("SELECT v FROM Cliente v WHERE v.correo = :correo");
             query.setParameter("correo", cliente.getCorreo());
             if (!query.getResultList().isEmpty()) {
-                return 1; // Client exists with the given email only
+                return 1;
             }
-
-            return 2; // Client does not exist with the given email or password
+            return 2;
         } finally {
             entityManager.close();
         }
