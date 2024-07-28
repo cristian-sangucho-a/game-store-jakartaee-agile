@@ -36,7 +36,7 @@ public class ClienteTest {
     Entonces se mostrara el formulario de registro.
      * */
     @Test
-    public void given_cliente_en_login_when_introduzca_usuario_incorrecto_y_contrasenia_correcta_then_se_muestra_formulario_registro(){
+    public void given_cliente_en_login_when_introduzca_contrasenia_incorrecta_then_se_muestra_formulario_registro(){
         cliente.setContrasenia("malacontra");
         assertTrue(clienteDAO.existeCliente(cliente) == 1); //solo existe el correo, contrasena mal
         System.out.println("Acceso denegado, contrasenia incorrecta, introduzca de nuevo sus credenciales en login.jsp");
@@ -49,7 +49,7 @@ public class ClienteTest {
     Entonces se mostrara nuevamente el formulario de login.
      * */
     @Test
-    public void given_cliente_en_login_when_introduzca_usuario_correcto_y_contrasenia_correcta_incorrecta_then_se_muestra_index() {
+    public void given_cliente_en_login_when_introduzca_usuario_incorrecto_y_contrasenia_incorrecta_then_se_muestra_index() {
         cliente.setCorreo("cristian.apellido@gmail.com");
         cliente.setContrasenia("202020");
         assertFalse(clienteDAO.existeCliente(cliente) == 2); //no existe el usuario
