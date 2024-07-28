@@ -17,6 +17,11 @@ public class Cliente {
     public Cliente() {
     }
 
+    public Cliente(String correo, String contrasenia) {
+        this.correo = correo;
+        this.contrasenia = contrasenia;
+    }
+
     public Cliente(int id, String nombre,  String apellido, String correo, String contrasenia, boolean esAdmin) {
         this.id = id;
         this.nombre = nombre;
