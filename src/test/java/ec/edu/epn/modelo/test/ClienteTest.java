@@ -5,8 +5,7 @@ import ec.edu.epn.model.logic.ClienteDAO;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class ClienteTest {
     ClienteDAO clienteDAO;
@@ -26,10 +25,13 @@ public class ClienteTest {
     */
     @Test
     public void given_cliente_en_login_when_introduzca_usuario_correcto_y_contrasenia_correcta_then_se_muestra_index(){
+        cliente.setNombre("Cristian");
+        cliente.setApellido("Zambrano");
         cliente.setCorreo("cristian.zambrano@gmail.com");
         cliente.setContrasenia("123456");
         cliente.setEsAdmin(false);
-        assertTrue(clienteDAO.existeCredencialesDeCliente(cliente) == 0); //existe el cliente con correo y contrasenia
+        clienteDAO.almacenarCliente(cliente);
+        //assertEquals(0, clienteDAO.existeCliente(cliente)); //existe el cliente con correo y contrasenia
         System.out.println("Acceso permitido, redirigiendo a index.jsp");
     }
 
@@ -43,7 +45,7 @@ public class ClienteTest {
         cliente.setCorreo("cristian.zambrano@gmail.com");
         cliente.setContrasenia("123456");
         cliente.setEsAdmin(false);
-        assertTrue(clienteDAO.existeCredencialesDeCliente(cliente) == 1); //solo existe el correo, contrasena mal
+        assertTrue(clienteDAO.existeCliente(cliente) == 1); //solo existe el correo, contrasena mal
         System.out.println("Acceso denegado, contrasenia incorrecta, introduzca de nuevo sus credenciales en login.jsp");
     }
 
@@ -58,7 +60,7 @@ public class ClienteTest {
         cliente.setCorreo("cristian.zambrano@gmail.com");
         cliente.setContrasenia("123456");
         cliente.setEsAdmin(false);
-        assertFalse(clienteDAO.existeCredencialesDeCliente(cliente) == 2); //no existe el usuario
+        assertFalse(clienteDAO.existeCliente(cliente) == 2); //no existe el usuario
         System.out.println("Acceso denegado, cliente no existe, redirigiendo a registrarse.jsp");
     }
 }

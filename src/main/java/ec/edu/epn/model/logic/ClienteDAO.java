@@ -14,8 +14,8 @@ public class ClienteDAO {
         EntityManager entityManager = ManejoEntidadPersistencia.getEntityManager();
         try {
             Query query = entityManager.createQuery("SELECT v FROM Cliente v WHERE v.correo LIKE :correo and v.contrasenia LIKE :contrasenia");
-            query.setParameter("correo", "%" + cliente.getCorreo() + "%");
-            query.setParameter("contrasenia", "%" + cliente.getContrasenia() + "%");
+            query.setParameter("correo", cliente.getCorreo());
+            query.setParameter("contrasenia", cliente.getContrasenia());
             return (Cliente) query.getSingleResult();
         } finally {
             entityManager.close();
@@ -37,21 +37,25 @@ public class ClienteDAO {
         }
     }
 
-    public int existeCredencialesDeCliente(Cliente cliente) {
+    public int existeCliente(Cliente cliente) {
         EntityManager entityManager = ManejoEntidadPersistencia.getEntityManager();
         try {
+            // Check if the client exists with the given email and password
             Query query = entityManager.createQuery("SELECT v FROM Cliente v WHERE v.correo = :correo AND v.contrasenia = :contrasenia");
-            query.setParameter("correo", cliente.getCorreo() );
+            query.setParameter("correo", cliente.getCorreo());
             query.setParameter("contrasenia", cliente.getContrasenia());
-            if (query.getResultList().size() > 0) {
-                return 0; // el cliente existe con su correo y contrasenia
+            if (!query.getResultList().isEmpty()) {
+                return 0; // Client exists with the given email and password
             }
+
+            // Check if the client exists with the given email only
             query = entityManager.createQuery("SELECT v FROM Cliente v WHERE v.correo = :correo");
-            query.setParameter("correo", cliente.getCorreo() );
-            if (query.getResultList().size() > 0) {
-                return 1; // solo el correo esta correcto
+            query.setParameter("correo", cliente.getCorreo());
+            if (!query.getResultList().isEmpty()) {
+                return 1; // Client exists with the given email only
             }
-            return 2; // no hay cliente
+
+            return 2; // Client does not exist with the given email or password
         } finally {
             entityManager.close();
         }
