@@ -14,7 +14,8 @@ public class ClienteTest {
     @Before
     public void setUpClass() {
         clienteDAO = new ClienteDAO();
-        cliente = new Cliente();
+        cliente = new Cliente("cristian.zambrano@gmail.com", "123456", false);
+        clienteDAO.almacenarCliente(cliente);
     }
 
     /*
@@ -25,13 +26,7 @@ public class ClienteTest {
     */
     @Test
     public void given_cliente_en_login_when_introduzca_usuario_correcto_y_contrasenia_correcta_then_se_muestra_index(){
-        cliente.setNombre("Cristian");
-        cliente.setApellido("Zambrano");
-        cliente.setCorreo("cristian.zambrano@gmail.com");
-        cliente.setContrasenia("123456");
-        cliente.setEsAdmin(false);
-        clienteDAO.almacenarCliente(cliente);
-        //assertEquals(0, clienteDAO.existeCliente(cliente)); //existe el cliente con correo y contrasenia
+        assertEquals(0, clienteDAO.existeCliente(cliente)); //existe el cliente con correo y contrasenia
         System.out.println("Acceso permitido, redirigiendo a index.jsp");
     }
 
@@ -42,9 +37,7 @@ public class ClienteTest {
      * */
     @Test
     public void given_cliente_en_login_when_introduzca_usuario_incorrecto_y_contrasenia_correcta_then_se_muestra_formulario_registro(){
-        cliente.setCorreo("cristian.zambrano@gmail.com");
-        cliente.setContrasenia("123456");
-        cliente.setEsAdmin(false);
+        cliente.setContrasenia("malacontra");
         assertTrue(clienteDAO.existeCliente(cliente) == 1); //solo existe el correo, contrasena mal
         System.out.println("Acceso denegado, contrasenia incorrecta, introduzca de nuevo sus credenciales en login.jsp");
     }
@@ -57,9 +50,8 @@ public class ClienteTest {
      * */
     @Test
     public void given_cliente_en_login_when_introduzca_usuario_correcto_y_contrasenia_correcta_incorrecta_then_se_muestra_index() {
-        cliente.setCorreo("cristian.zambrano@gmail.com");
-        cliente.setContrasenia("123456");
-        cliente.setEsAdmin(false);
+        cliente.setCorreo("cristian.apellido@gmail.com");
+        cliente.setContrasenia("202020");
         assertFalse(clienteDAO.existeCliente(cliente) == 2); //no existe el usuario
         System.out.println("Acceso denegado, cliente no existe, redirigiendo a registrarse.jsp");
     }
