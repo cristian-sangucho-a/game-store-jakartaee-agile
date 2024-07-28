@@ -40,14 +40,14 @@ public class ClienteDAO {
     public int existeCredencialesDeCliente(Cliente cliente) {
         EntityManager entityManager = ManejoEntidadPersistencia.getEntityManager();
         try {
-            Query query = entityManager.createQuery("SELECT v FROM Cliente v WHERE v.correo LIKE :correo AND v.contrasenia LIKE :contrasenia");
-            query.setParameter("correo", "%" + cliente.getCorreo() + "%");
-            query.setParameter("contrasenia", "%" + cliente.getContrasenia() + "%");
+            Query query = entityManager.createQuery("SELECT v FROM Cliente v WHERE v.correo = :correo AND v.contrasenia = :contrasenia");
+            query.setParameter("correo", cliente.getCorreo() );
+            query.setParameter("contrasenia", cliente.getContrasenia());
             if (query.getResultList().size() > 0) {
                 return 0; // el cliente existe con su correo y contrasenia
             }
-            query = entityManager.createQuery("SELECT v FROM Cliente v WHERE v.correo LIKE :correo");
-            query.setParameter("correo", "%" + cliente.getCorreo() + "%");
+            query = entityManager.createQuery("SELECT v FROM Cliente v WHERE v.correo = :correo");
+            query.setParameter("correo", cliente.getCorreo() );
             if (query.getResultList().size() > 0) {
                 return 1; // solo el correo esta correcto
             }
