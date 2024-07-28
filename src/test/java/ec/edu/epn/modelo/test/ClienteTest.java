@@ -38,6 +38,7 @@ public class ClienteTest {
     @Test
     public void given_cliente_en_login_when_introduzca_usuario_incorrecto_y_contrasenia_correcta_then_se_muestra_formulario_registro(){
         assertTrue(clienteDAO.existeCredencialesDeCliente(cliente) == 1); //solo existe el correo, contrasena mal
+        System.out.println("Acceso denegado, contrasenia incorrecta, introduzca de nuevo sus credenciales en login.jsp");
     }
 
     /*
@@ -49,6 +50,6 @@ public class ClienteTest {
     @Test
     public void given_cliente_en_login_when_introduzca_usuario_correcto_y_contrasenia_correcta_incorrecta_then_se_muestra_index() {
         assertFalse(clienteDAO.existeCredencialesDeCliente(cliente) == 2); //no existe el usuario
-
+        System.out.println("Acceso denegado, cliente no existe, redirigiendo a registrarse.jsp");
     }
 }
