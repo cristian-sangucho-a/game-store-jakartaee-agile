@@ -23,7 +23,6 @@ import jakarta.servlet.http.Part;
  */
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Base64;
 import java.util.List;
 /**
  * Clase VideojuegoDAO que gestiona las operaciones de base de datos para los objetos Videojuego.
@@ -118,10 +117,9 @@ public class VideojuegoDAO {
             entityManager.close();
         }
     }
-    public String convertirImagenBase64(Part archivoImagen) throws IOException {
+    public byte[] convertirBytes(Part archivoImagen) throws IOException {
         InputStream contenidoImagen = archivoImagen.getInputStream();
-        byte[] bytesImagen = contenidoImagen.readAllBytes();
-        return Base64.getEncoder().encodeToString(bytesImagen);
+        return contenidoImagen.readAllBytes();
     }
     public void almacenarVideojuego(Videojuego videojuego) {
         EntityManager entityManager = ManejoEntidadPersistencia.getEntityManager();
