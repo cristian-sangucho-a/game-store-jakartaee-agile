@@ -21,7 +21,7 @@ public class SvCargarVideojuego {
         videojuego.setPrecio(Double.parseDouble(request.getParameter("precio")));
         Part filePart = request.getPart("image");
         byte[] img = videojuegoDAO.convertirBytes(filePart);
-        videojuego.setImageData(img);
+        videojuego.setImageData(img); //seteo la imagen ya en base64
         videojuegoDAO.almacenarVideojuego(videojuego);
     }
 }
