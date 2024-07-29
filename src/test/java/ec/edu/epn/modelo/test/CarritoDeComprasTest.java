@@ -34,6 +34,8 @@ public class CarritoDeComprasTest {
         Videojuego videojuegoAAgregar = new Videojuego();
         videojuegoAAgregar.setId(1);
         videojuegoAAgregar.setTitulo("Juego de prueba");
+        videojuegoAAgregar.setDesarrollador("Jean Pierre");
+        videojuegoAAgregar.setImageData(new byte[] {0, 0, 0, 0});
         carritoDeCompras.agregarVideojuegoAlCarrito(videojuegoAAgregar);
         assertTrue(carritoDeCompras.getVideojuegos().contains(videojuegoAAgregar));
     }
