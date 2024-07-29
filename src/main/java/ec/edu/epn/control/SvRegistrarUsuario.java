@@ -33,41 +33,27 @@ public class SvRegistrarUsuario extends HttpServlet {
         String apellido = request.getParameter("apellido");
         String correo = request.getParameter("correo");
         String contrasenia = request.getParameter("contrasena");
-
+        boolean checkAdmin = Boolean.parseBoolean(request.getParameter("checkAdmin"));
         //Crear un nuevo cliente con los datos ingresados
         Cliente nuevoCliente = new Cliente();
         nuevoCliente.setNombre(nombre);
         nuevoCliente.setApellido(apellido);
         nuevoCliente.setCorreo(correo);
         nuevoCliente.setContrasenia(contrasenia);
-        nuevoCliente.setEsAdmin(false);
-
+        nuevoCliente.setEsAdmin(checkAdmin);
         //Llamada al DAO para guardar el nuevo cliente en la base de datos
         ClienteDAO clienteDAO = new ClienteDAO();
         int estadoCliente = clienteDAO.existeCliente(nuevoCliente);
-
-        //Mensajes dado ciertos casos
-        try (PrintWriter out = response.getWriter()) {
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Registro de Usuario</title>");
-            out.println("<script type='text/javascript'>");
-
-            if (estadoCliente == 2) {
+        switch (estadoCliente){
+            case 0:
                 clienteDAO.almacenarCliente(nuevoCliente);
-                out.println("alert('Registro exitoso: El usuario se ha registrado correctamente.');");
-            } else if (estadoCliente == 1) {
-                out.println("alert('Error en el registro: El correo ya está registrado.');");
-            } else {
-                out.println("alert('Error en el registro: El cliente ya existe.');");
-            }
+                response.sendRedirect("iniciarSesion.jsp");
+                break;
+            case 1:
+            case 2:
+                response.sendRedirect("registro.jsp");
+                break;
 
-            out.println("window.location.href = 'registrarse.jsp';");
-            out.println("</script>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("</body>");
-            out.println("</html>");
         }
     }
 }
