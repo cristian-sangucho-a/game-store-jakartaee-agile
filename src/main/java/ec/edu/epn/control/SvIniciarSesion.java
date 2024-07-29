@@ -29,7 +29,7 @@ public class SvIniciarSesion extends HttpServlet {
                 clienteAutenticado = clienteDAO.obtenerCliente(clienteaAutenticar);
                 HttpSession session = request.getSession();
                 session.setAttribute("cliente", clienteAutenticado);
-                if (!clienteAutenticado.isEsAdmin) {
+                if (!clienteAutenticado.isEsAdmin()) {
                     //redirect a la pagina de admin, por el momento al index
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                     break;
