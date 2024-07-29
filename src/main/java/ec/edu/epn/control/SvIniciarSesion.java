@@ -44,7 +44,6 @@ public class SvIniciarSesion extends HttpServlet {
                 break;
             default:
                 break;
-
         }
 
     }

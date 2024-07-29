@@ -28,6 +28,7 @@ public class SvPagarCarrito  extends HttpServlet {
      */
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
         String numeroTarjeta = request.getParameter("numero-tarjeta");
         String fechaExpiracion = request.getParameter("fecha-expiracion");
         String cvv = request.getParameter("cvv-tarjeta");
@@ -51,7 +52,7 @@ public class SvPagarCarrito  extends HttpServlet {
     private static void pagar(HttpServletRequest request, HttpServletResponse response, String numeroTarjeta, String fechaExpiracion, String cvv, String titularDeLaTarjeta) throws IOException {
         ValidarTarjeta  validarTarjeta = new ValidarTarjeta();
         if(!validarTarjeta.validarTarjeta(numeroTarjeta.toCharArray(), fechaExpiracion, cvv)){
-            response.sendRedirect("seccionPagos.jsp");
+            response.sendRedirect("ingresoTarjeta.jsp");
             return;
         }
         PagoDAO pagoDAO = new PagoDAO();

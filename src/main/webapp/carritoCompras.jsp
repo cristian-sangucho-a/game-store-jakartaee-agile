@@ -58,7 +58,7 @@
         <form action="SvEliminarTodosLosVideojuegos" method="POST" style="display: inline;">
             <button type="submit" class="btn-vaciar">Vaciar Carrito</button>
         </form>
-        <form action="seccionPagos.jsp" method="GET" style="display: inline;">
+        <form action="SvValidarCliente" method="POST" style="display: inline;">
             <button type="submit" class="btn-pagar">Pagar Carrito</button>
         </form>
     </div>
