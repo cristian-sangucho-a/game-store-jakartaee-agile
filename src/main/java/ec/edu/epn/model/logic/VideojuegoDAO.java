@@ -17,9 +17,13 @@ import jakarta.persistence.EntityManager;
  * Clase para manejar Query's por parámetros
  */
 import jakarta.persistence.Query;
+import jakarta.servlet.http.Part;
 /**
  * Clase para manejar listas
  */
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Base64;
 import java.util.List;
 /**
  * Clase VideojuegoDAO que gestiona las operaciones de base de datos para los objetos Videojuego.
@@ -111,6 +115,24 @@ public class VideojuegoDAO {
             query.setParameter("IdVideojuego", IdVideojuego);
             return (Videojuego) query.getResultList().get(0);
         } finally {
+            entityManager.close();
+        }
+    }
+    public String convertirImagenBase64(Part archivoImagen) throws IOException {
+        InputStream contenidoImagen = archivoImagen.getInputStream();
+        byte[] bytesImagen = contenidoImagen.readAllBytes();
+        return Base64.getEncoder().encodeToString(bytesImagen);
+    }
+    public void almacenarVideojuego(Videojuego videojuego) {
+        EntityManager entityManager = ManejoEntidadPersistencia.getEntityManager();
+        try {
+            entityManager.getTransaction().begin();
+            entityManager.persist(videojuego);
+            entityManager.getTransaction().commit();
+        } finally {
+            if (entityManager.getTransaction().isActive()) {
+                entityManager.getTransaction().rollback();
+            }
             entityManager.close();
         }
     }
