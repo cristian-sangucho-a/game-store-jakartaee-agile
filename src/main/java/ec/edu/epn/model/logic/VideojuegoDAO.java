@@ -134,4 +134,24 @@ public class VideojuegoDAO {
             entityManager.close();
         }
     }
+    /**
+     * Método para eliminar un videojuego por su identificador único.
+     * @param IdVideojuego el identificador único del videojuego a eliminar.
+     */
+    public void eliminarVideojuegoPorId(int IdVideojuego) {
+        EntityManager entityManager = ManejoEntidadPersistencia.getEntityManager();
+        try {
+            entityManager.getTransaction().begin();
+            Videojuego videojuego = entityManager.find(Videojuego.class, IdVideojuego);
+            if (videojuego != null) {
+                entityManager.remove(videojuego);
+            }
+            entityManager.getTransaction().commit();
+        } finally {
+            if (entityManager.getTransaction().isActive()) {
+                entityManager.getTransaction().rollback();
+            }
+            entityManager.close();
+        }
+    }
 }

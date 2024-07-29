@@ -139,4 +139,13 @@ public class Videojuego {
     public void setImageData(byte[] imageData) {
         this.imageData = imageData;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (titulo.equals(((Videojuego) obj).getTitulo()) &&
+                precio == (((Videojuego) obj).getPrecio()) &&
+                Desarrollador.equals(((Videojuego) obj).getDesarrollador()) && imageData.equals(((Videojuego) obj).getImageData())) {
+            return true;
+        }else return false;
+    }
 }
