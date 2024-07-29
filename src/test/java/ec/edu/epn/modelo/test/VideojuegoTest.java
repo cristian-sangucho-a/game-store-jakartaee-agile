@@ -101,4 +101,21 @@ public static VideojuegoDAO videojuegoDAO;
        assertFalse(catalogo.isEmpty());
     }
 
+    @Test
+    public void given_formulario_when_ingrese_datos_videojuego_correctamente_then_mostrar_correctamente_videojuego_y_subirlo(){
+        Videojuego videojuego = new Videojuego();
+        videojuego.setDesarrollador("Jean Pierre");
+        videojuego.setTitulo("Mindustry");
+        videojuego.setPrecio(20.56);
+        videojuego.setImageData(new byte[] {0,0,0,0});
+
+        videojuegoDAO.almacenarVideojuego(videojuego);
+
+        Videojuego videojuegoGuardado = (Videojuego) videojuegoDAO.obtenerVideojuegoPorId(videojuego.getId());
+
+        assertTrue(videojuegoGuardado.equals(videojuego));
+
+        videojuegoDAO.eliminarVideojuegoPorId(videojuegoGuardado.getId());
+    }
+
 }
