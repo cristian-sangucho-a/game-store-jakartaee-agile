@@ -61,7 +61,7 @@ public class ClienteDAO {
         }
     }
 
-    public boolean existeEsteCliente(String nombreBuscado, String apellidoBuscado) {
+    public boolean existeCliente(String nombreBuscado, String apellidoBuscado) {
         EntityManager entityManager = ManejoEntidadPersistencia.getEntityManager();
         try{
             Query query = entityManager.createQuery("SELECT v FROM Cliente v WHERE v.nombre=:nombreBuscado and v.apellido=:apellidoBuscado");
