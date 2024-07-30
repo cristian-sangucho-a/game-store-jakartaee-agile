@@ -71,7 +71,7 @@ public class SvPagarCarrito  extends HttpServlet {
             DetallePago detallePago = new DetallePago();
             detallePago.setVideojuego(videojuego);
             detallesDePago.add(detallePago);
-            bibliotecaDAO.agregarVideojuegoABiblioteca(videojuego, cliente.getBiblioteca());
+            bibliotecaDAO.agregarVideojuego(videojuego, cliente.getBiblioteca());
         }
 
         //cuando ya acaba de pagarse
