@@ -1,8 +1,10 @@
 package ec.edu.epn.control;
 
+import ec.edu.epn.model.entities.Cliente;
 import ec.edu.epn.model.entities.DetallePago;
 import ec.edu.epn.model.entities.Pago;
 import ec.edu.epn.model.entities.Videojuego;
+import ec.edu.epn.model.logic.BibliotecaDAO;
 import ec.edu.epn.model.logic.CarritoDeCompras;
 import ec.edu.epn.model.logic.PagoDAO;
 import ec.edu.epn.model.logic.ValidarTarjeta;
@@ -55,22 +57,27 @@ public class SvPagarCarrito  extends HttpServlet {
             response.sendRedirect("ingresoTarjeta.jsp");
             return;
         }
+        BibliotecaDAO bibliotecaDAO = new BibliotecaDAO();
         PagoDAO pagoDAO = new PagoDAO();
         HttpSession session = request.getSession();
         Integer contadorCarrito = (Integer) session.getAttribute("contadorCarrito");
         CarritoDeCompras carroDeCompras = (CarritoDeCompras) session.getAttribute("carroDeCompras");
+        Cliente cliente = (Cliente) session.getAttribute("cliente");
         double totalCarroDeCompra = carroDeCompras.getTotalCompra();
         ArrayList<Videojuego> videojuegos = carroDeCompras.getVideojuegos();
         ArrayList<DetallePago> detallesDePago =  new ArrayList<DetallePago>();
+
         for (Videojuego videojuego : videojuegos) {
             DetallePago detallePago = new DetallePago();
             detallePago.setVideojuego(videojuego);
             detallesDePago.add(detallePago);
+            bibliotecaDAO.agregarVideojuegoABiblioteca(videojuego, cliente.getBiblioteca());
         }
 
         //cuando ya acaba de pagarse
         carroDeCompras.borrarTodosLosVideojuegos();
         session.setAttribute("carroDeCompras",carroDeCompras);
+
         Pago pago = pagoDAO.consolidarCompra(totalCarroDeCompra, titularDeLaTarjeta, detallesDePago);
         contadorCarrito = carroDeCompras.getVideojuegos().toArray().length; // Obtener la cantidad de videojuegos en el carrito
         session.setAttribute("contadorCarrito", contadorCarrito); // Actualizar el contador en la sesión
