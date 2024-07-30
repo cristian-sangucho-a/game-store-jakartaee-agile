@@ -1,7 +1,9 @@
 package ec.edu.epn.modelo.test;
 
 import ec.edu.epn.model.entities.Cliente;
+import ec.edu.epn.model.entities.Videojuego;
 import ec.edu.epn.model.logic.ClienteDAO;
+import ec.edu.epn.model.logic.VideojuegoDAO;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -37,5 +39,16 @@ public class ClienteTest {
         cliente.setContrasenia("202020");
         assertTrue(clienteDAO.existeCliente(cliente) == 2); //no existe el usuario
         System.out.println("Acceso denegado, cliente no existe, redirigiendo a registrarse.jsp");
+    }
+
+    @Test
+    public void given_cliente_en_la_tienda_when_vaya_a_biblioteca_then_se_muestran_videojuegos_comprados(){
+        Cliente clienteBD = clienteDAO.obtenerCliente(cliente);
+        VideojuegoDAO videojuegoDAO = new VideojuegoDAO();
+        Videojuego videojuego = videojuegoDAO.obtenerVideojuegoPorId(0);
+
+        bibliotecaDAO.agregarVideojuego(videojuego, clienteBD.getBiblioteca());
+
+        assertTrue(!clienteBD.getBiblioteca().getVideojuegos().isEmpty());
     }
 }
