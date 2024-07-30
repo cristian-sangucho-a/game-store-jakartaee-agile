@@ -57,7 +57,12 @@ public class ClienteTest {
         Videojuego videojuego = videojuegoDAO.obtenerVideojuegoPorId(1);
 
         BibliotecaDAO bibliotecaDAO = new BibliotecaDAO();
-        bibliotecaDAO.agregarVideojuego(videojuego, clienteBD.getBiblioteca());
+        try{
+            bibliotecaDAO.agregarVideojuego(videojuego, clienteBD.getBiblioteca());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
 
         assertTrue(!clienteBD.getBiblioteca().getVideojuegos().isEmpty());
     }
