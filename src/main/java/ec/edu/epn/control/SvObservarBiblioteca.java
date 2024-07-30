@@ -1,4 +1,5 @@
 package ec.edu.epn.control;
+import ec.edu.epn.model.entities.Biblioteca;
 import jakarta.servlet.ServletException;
 import ec.edu.epn.model.entities.Cliente;
 import ec.edu.epn.model.entities.Pago;
@@ -17,6 +18,14 @@ public class SvObservarBiblioteca extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException{
         HttpSession session = request.getSession();
         Cliente cliente = (Cliente) session.getAttribute("cliente");
+        if(cliente==null){
+            try {
+                request.getRequestDispatcher("iniciarSesion.jsp").forward(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
         Biblioteca biblioteca = cliente.getBiblioteca();
         request.setAttribute("biblioteca", biblioteca);
         try {
