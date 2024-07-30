@@ -20,7 +20,7 @@ public class Pago {
     private String titularDeLaTarjeta;
     private Date fechaDelPago;
 
-    @OneToMany(mappedBy = "pago")
+    @OneToMany(mappedBy = "pago", cascade = CascadeType.ALL)
     private List<DetallePago> detallesPagos;
 
     /**
