@@ -4,6 +4,7 @@
         <class>ec.edu.epn.model.entities.Pago</class>
         <class>ec.edu.epn.model.entities.DetallePago</class>
         <class>ec.edu.epn.model.entities.Cliente</class>
+        <class>ec.edu.epn.model.entities.Biblioteca</class>
         <properties>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:sqlserver://servidortiendadevideojuejos.database.windows.net:1433;database=TiendaVideojuegosC3J2"/>
             <property name="jakarta.persistence.jdbc.user" value="adminTienda"/>
