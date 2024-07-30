@@ -3,6 +3,7 @@ import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Clase Pago que representa el pago realizado por un cliente.
@@ -18,8 +19,9 @@ public class Pago {
     private double totalCompra;
     private String titularDeLaTarjeta;
     private Date fechaDelPago;
-    @OneToMany(mappedBy = "pago", cascade = CascadeType.PERSIST)
-    private ArrayList<DetallePago> detallesPagos;
+
+    @OneToMany(mappedBy = "pago")
+    private List<DetallePago> detallesPagos;
 
     /**
      * Constructor por defecto que inicializa la fecha del pago a la fecha actual del sistema.
@@ -120,7 +122,7 @@ public class Pago {
      *
      * @return La lista de detalles de pagos.
      */
-    public ArrayList<DetallePago> getDetallesPagos() {
+    public List<DetallePago> getDetallesPagos() {
         return detallesPagos;
     }
 
