@@ -30,8 +30,7 @@ public class SvIniciarSesion extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("cliente", clienteAutenticado);
                 if (!clienteAutenticado.isEsAdmin()) {
-                    //redirect a la pagina de admin, por el momento al index
-                    request.getRequestDispatcher("index.jsp").forward(request, response);
+                    request.getRequestDispatcher("cargaVideojuegos.jsp").forward(request, response);
                     break;
                 }
                 request.getRequestDispatcher("index.jsp").forward(request, response);
