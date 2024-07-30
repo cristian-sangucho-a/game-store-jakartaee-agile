@@ -14,7 +14,7 @@ public class Cliente {
     private String contrasenia;
     private boolean esAdmin;
     @OneToOne
-    @JoinColumn(name = "biblioteca_id")
+    @JoinColumn(name = "id")
     private Biblioteca biblioteca;
 
     public Cliente() {
