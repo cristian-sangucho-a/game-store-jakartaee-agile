@@ -17,11 +17,10 @@ public class SvObservarBiblioteca extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException{
         HttpSession session = request.getSession();
         Cliente cliente = (Cliente) session.getAttribute("cliente");
-        PagoDAO pagoDAO = new PagoDAO();
-        List<Pago> pagosCliente = pagoDAO.obtenerTodosLosPagosCLiente(cliente);
-        request.setAttribute("pagosCliente", pagosCliente);
+        Biblioteca biblioteca = cliente.getBiblioteca();
+        request.setAttribute("biblioteca", biblioteca);
         try {
-            request.getRequestDispatcher("observarBiblioteca.jsp").forward(request, response);
+            request.getRequestDispatcher("biblioteca.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
         }
