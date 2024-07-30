@@ -13,8 +13,12 @@ public class Cliente {
     private String correo;
     private String contrasenia;
     private boolean esAdmin;
+    @OneToOne
+    @JoinColumn(name = "biblioteca_id")
+    private Biblioteca biblioteca;
 
     public Cliente() {
+        biblioteca = new Biblioteca();
     }
 
     public Cliente(String correo, String contrasenia, boolean esAdmin) {
@@ -78,6 +82,10 @@ public class Cliente {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public Biblioteca getBiblioteca() {
+        return biblioteca;
     }
 
     @Override
