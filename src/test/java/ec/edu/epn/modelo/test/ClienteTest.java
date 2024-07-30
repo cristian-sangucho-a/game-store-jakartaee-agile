@@ -2,6 +2,7 @@ package ec.edu.epn.modelo.test;
 
 import ec.edu.epn.model.entities.Cliente;
 import ec.edu.epn.model.entities.Videojuego;
+import ec.edu.epn.model.logic.BibliotecaDAO;
 import ec.edu.epn.model.logic.ClienteDAO;
 import ec.edu.epn.model.logic.VideojuegoDAO;
 import org.junit.Before;
@@ -47,6 +48,7 @@ public class ClienteTest {
         VideojuegoDAO videojuegoDAO = new VideojuegoDAO();
         Videojuego videojuego = videojuegoDAO.obtenerVideojuegoPorId(0);
 
+        BibliotecaDAO bibliotecaDAO = new BibliotecaDAO();
         bibliotecaDAO.agregarVideojuego(videojuego, clienteBD.getBiblioteca());
 
         assertTrue(!clienteBD.getBiblioteca().getVideojuegos().isEmpty());
