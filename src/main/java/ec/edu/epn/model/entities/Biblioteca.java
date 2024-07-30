@@ -11,6 +11,11 @@ public class Biblioteca {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
     @ManyToMany
+    @JoinTable(
+            name = "biblioteca_videojuego", // Join table name
+            joinColumns = @JoinColumn(name = "biblioteca_id"), // Foreign key for Biblioteca
+            inverseJoinColumns = @JoinColumn(name = "videojuego_id") // Foreign key for Videojuego
+    )
     private ArrayList<Videojuego> videojuegos;
 
     public Biblioteca() {
