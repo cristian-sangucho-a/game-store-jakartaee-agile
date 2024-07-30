@@ -94,7 +94,7 @@ public class VideojuegoDAO {
     public List<Videojuego> obtenerVideojuegoPorDesarrollador(String nombreDeDesarrollador) {
         EntityManager entityManager = ManejoEntidadPersistencia.getEntityManager();
         try{
-            Query query = entityManager.createQuery("SELECT v FROM Videojuego v WHERE v.nombreDeDesarrollador = :nombreDeDesarrollador");
+            Query query = entityManager.createQuery("SELECT v FROM Videojuego v WHERE v.Desarrollador = :nombreDeDesarrollador");
             query.setParameter("nombreDeDesarrollador", nombreDeDesarrollador);
             return query.getResultList();
         } finally {
