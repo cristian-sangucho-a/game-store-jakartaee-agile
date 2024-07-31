@@ -29,10 +29,8 @@ public class SvIniciarSesion extends HttpServlet {
                 clienteAutenticado = clienteDAO.obtenerCliente(clienteaAutenticar);
                 HttpSession session = request.getSession();
                 session.setAttribute("cliente", clienteAutenticado);
-                if (!clienteAutenticado.isEsAdmin()) {
-                    request.getRequestDispatcher("cargaVideojuegos.jsp").forward(request, response);
-                    break;
-                }
+                request.getRequestDispatcher("index.jsp").forward(request, response);
+
                 request.getRequestDispatcher("index.jsp").forward(request, response);
                 break;
             case 1:

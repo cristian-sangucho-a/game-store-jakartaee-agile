@@ -4,7 +4,19 @@
 <%@ page import="ec.edu.epn.model.logic.VideojuegoDAO" %>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <%@ page import="ec.edu.epn.model.logic.CarritoDeCompras" %>
+<%@ page import="ec.edu.epn.model.entities.Cliente" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    HttpSession sessionInicio = request.getSession();
+    HttpSession haySession = request.getSession(false);
+    boolean esAdmin = false;
+    if(haySession != null){
+        Cliente cliente = (Cliente) sessionInicio.getAttribute("cliente");
+        if(cliente != null){
+            esAdmin = cliente.isEsAdmin();
+        }
+    }
+%>
 <html>
 <head>
     <title>Tienda de Videojuegos</title>
@@ -38,7 +50,7 @@
 </head>
 <body>
 <%
-    HttpSession sessionInicio = request.getSession();
+
     Integer contadorCarrito = (Integer) sessionInicio.getAttribute("contadorCarrito");
     if (contadorCarrito == null) {
         contadorCarrito = 0; // Asegurarse de que haya un valor por defecto
@@ -57,6 +69,12 @@
         <form method="get" action="registrarse.jsp">
             <button type="submit">Registrarse</button>
         </form>
+        <% if(session != null && esAdmin){ %>
+        <!-- Si la sesión existe y el cliente es un administrador, muestra el botón -->
+        <form method="get" action="cargaVideos.jsp">
+            <button type="submit">Cargar Videojuego</button>
+        </form>
+        <% } %>
     </div>
     <div class="biblioteca-header">
         <form method="post" action="SvObservarBiblioteca">
