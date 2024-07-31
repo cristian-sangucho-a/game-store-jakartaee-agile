@@ -30,8 +30,6 @@ public class SvIniciarSesion extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("cliente", clienteAutenticado);
                 request.getRequestDispatcher("index.jsp").forward(request, response);
-
-                request.getRequestDispatcher("index.jsp").forward(request, response);
                 break;
             case 1:
                 request.getRequestDispatcher("iniciarSesion.jsp").forward(request, response);
