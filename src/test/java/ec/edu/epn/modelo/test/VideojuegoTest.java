@@ -27,7 +27,7 @@ public static VideojuegoDAO videojuegoDAO;
     @Test
     public void given_titulo_when_usuario_busque_then_obtener_coincidencias() {
         // Crear una lista de videojuegos para simular lo que retornaría la base de datos
-        String tituloEntrante = "Persona";
+        String tituloEntrante = "Borderland";
         List<Videojuego> resultado =videojuegoDAO.obtenerVideojuegoPorTitulo(tituloEntrante);
         System.out.println(resultado.size());
         assertFalse(resultado.isEmpty());
@@ -75,7 +75,7 @@ public static VideojuegoDAO videojuegoDAO;
     @Test
     public void given_desarrollador_when_usuario_busque_then_obtener_coincidencias() {
         // Crear una lista de videojuegos para simular lo que retornaría la base de datos
-        String nombreDesarrollador = "Nintendo";
+        String nombreDesarrollador = "EA Sports";
         List<Videojuego> resultado =videojuegoDAO.obtenerVideojuegoPorDesarrollador(nombreDesarrollador);
         assertFalse(resultado.isEmpty());
     }
