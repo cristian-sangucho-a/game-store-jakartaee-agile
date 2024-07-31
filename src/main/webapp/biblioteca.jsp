@@ -34,11 +34,6 @@
             <img src="data:image/png;base64,<%= videojuego.getImageDataString() %>" alt="imagenDeVideojuego">
         </div>
         <p>Desarrollado por: <%= videojuego.getDesarrollador() %></p>
-        <p class="precio">Precio: <%= videojuego.getPrecio() %></p>
-        <form action="SvAgregarACarrito" method="post">
-            <input type="hidden" name="idVideojuego" value="<%= videojuego.getId() %>">
-            <button type="submit" class="btn-agregar">Agregar al carrito</button>
-        </form>
     </div>
     <%
             }
