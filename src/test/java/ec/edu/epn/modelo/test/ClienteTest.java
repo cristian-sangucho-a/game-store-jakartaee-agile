@@ -54,7 +54,7 @@ public class ClienteTest {
     public void given_cliente_en_la_tienda_when_vaya_a_biblioteca_then_se_muestran_videojuegos_comprados(){
         Cliente clienteBD = clienteDAO.obtenerCliente(cliente);
         VideojuegoDAO videojuegoDAO = new VideojuegoDAO();
-        Videojuego videojuego = videojuegoDAO.obtenerVideojuegoPorId(1);
+        Videojuego videojuego = videojuegoDAO.obtenerVideojuegoPorId(169);
 
         BibliotecaDAO bibliotecaDAO = new BibliotecaDAO();
         try{
