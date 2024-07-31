@@ -46,12 +46,13 @@ public class SvRegistrarUsuario extends HttpServlet {
         int estadoCliente = clienteDAO.existeCliente(nuevoCliente);
         switch (estadoCliente){
             case 0:
+            case 1:
+                response.sendRedirect("registrarse.jsp");
+                break;
+
+            case 2:
                 clienteDAO.almacenarCliente(nuevoCliente);
                 response.sendRedirect("iniciarSesion.jsp");
-                break;
-            case 1:
-            case 2:
-                response.sendRedirect("registro.jsp");
                 break;
 
         }
