@@ -71,7 +71,7 @@
         </form>
         <% if(session != null && esAdmin){ %>
         <!-- Si la sesión existe y el cliente es un administrador, muestra el botón -->
-        <form method="get" action="cargaVideos.jsp">
+        <form method="get" action="cargaVideojuegos.jsp">
             <button type="submit">Cargar Videojuego</button>
         </form>
         <% } %>
