@@ -9,6 +9,7 @@
     <title>Biblioteca de Videojuegos</title>
     <!-- Enlace al archivo CSS para estilizar la página -->
     <link rel="stylesheet" href="styles1.css">
+    <link rel="stylesheet" href="stylesCarrito.css">
 </head>
 <body>
 <!-- Sección para volver al inicio -->
