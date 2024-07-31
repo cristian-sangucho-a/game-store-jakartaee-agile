@@ -56,6 +56,7 @@ header h1 {
     gap: 20px;
     padding: 20px;
 }
+
 .card {
     width: 280px;
     border: 1px solid #ccc;
@@ -64,6 +65,7 @@ header h1 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s ease-in-out;
+    overflow: hidden; /* Asegura que el contenido no se salga de la tarjeta */
 }
 .card:hover {
     transform: translateY(-10px);
@@ -81,6 +83,13 @@ header h1 {
     color: #555;
     font-size: 1rem;
 }
+.card img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Asegura que la imagen no tenga espacio adicional alrededor */
+    border-bottom: 1px solid #ccc; /* Opcional: agrega una línea para separar la imagen del contenido */
+}
+
 .precio {
     font-size: 1.5rem;
     color: #007BFF;
