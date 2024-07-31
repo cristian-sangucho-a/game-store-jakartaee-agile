@@ -9,6 +9,7 @@ package ec.edu.epn.model.entities;
 import jakarta.persistence.*;
 
 import java.util.Arrays;
+import java.util.Base64;
 
 /**
  * Clase Videojuego para la persistencia de la información
@@ -125,11 +126,7 @@ public class Videojuego {
 
 
     public String getImageDataString(){
-        StringBuilder sb = new StringBuilder();
-        for (byte imageDatum : this.imageData) {
-            sb.append((char) imageDatum);
-        }
-        return sb.toString();
+        return Base64.getEncoder().encodeToString(this.imageData);
     }
 
     public byte[] getImageData() {
