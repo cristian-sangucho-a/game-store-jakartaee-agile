@@ -1,6 +1,8 @@
 <%@ page import="java.util.List" %>
 <%@ page import="ec.edu.epn.model.entities.Videojuego" %>
 <%@ page import="ec.edu.epn.model.entities.Biblioteca" %>
+<%@ page import="ec.edu.epn.model.logic.ClienteDAO" %>
+<%@ page import="ec.edu.epn.model.entities.Cliente" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>

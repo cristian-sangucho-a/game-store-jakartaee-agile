@@ -1,5 +1,6 @@
 package ec.edu.epn.control;
 
+import ec.edu.epn.model.entities.Biblioteca;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -36,6 +37,7 @@ public class SvRegistrarUsuario extends HttpServlet {
         boolean checkAdmin = Boolean.parseBoolean(request.getParameter("checkAdmin"));
         //Crear un nuevo cliente con los datos ingresados
         Cliente nuevoCliente = new Cliente();
+        nuevoCliente.setBiblioteca(new Biblioteca(nombre + "_Biblioteca"));
         nuevoCliente.setNombre(nombre);
         nuevoCliente.setApellido(apellido);
         nuevoCliente.setCorreo(correo);

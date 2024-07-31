@@ -95,6 +95,9 @@ public class Cliente {
     public Biblioteca getBiblioteca() {
         return biblioteca;
     }
+    public void setBiblioteca(Biblioteca biblioteca) {
+        this.biblioteca = biblioteca;
+    }
 
     @Override
     public String toString() {

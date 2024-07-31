@@ -117,10 +117,7 @@ public class VideojuegoDAO {
             entityManager.close();
         }
     }
-    public byte[] convertirBytes(Part archivoImagen) throws IOException {
-        InputStream contenidoImagen = archivoImagen.getInputStream();
-        return contenidoImagen.readAllBytes();
-    }
+
     public void almacenarVideojuego(Videojuego videojuego) {
         EntityManager entityManager = ManejoEntidadPersistencia.getEntityManager();
         try {

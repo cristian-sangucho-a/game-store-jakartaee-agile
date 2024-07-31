@@ -42,7 +42,7 @@
             <label for="checkAdmin">Administrador</label>
             <div class="grupo-input">
                 <span class="icono-grupo-input"><i class="fas fa-lock"></i></span>
-                <label for="checkAdmin"></label><input type="checkbox" id="checkAdmin" name="checkAdmin" value="true" required>
+                <label for="checkAdmin"></label><input type="checkbox" id="checkAdmin" name="checkAdmin" value="true">
             </div>
         </div>
         <button type="submit">Registrar</button>

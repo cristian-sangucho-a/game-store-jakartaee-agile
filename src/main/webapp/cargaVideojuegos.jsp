@@ -25,7 +25,7 @@
         </div>
         <div class="form-group">
             <label for="image">Imagen:</label>
-            <input type="file" id="image" name="image" accept="image/*" required>
+            <input type="file" id="image" name="image" required>
         </div>
         <div class="form-group">
             <button type="submit" class="btn-cargar">Cargar Videojuego</button>
