@@ -1,3 +1,5 @@
+> # **[Check out more information and a demo on my personal website](https://cristiansangucho.tech/projects/game-store/)**
+
 # Payment and Library Management Project - Java EE
 
 ## 📖 Description
